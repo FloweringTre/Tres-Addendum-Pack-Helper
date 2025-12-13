@@ -1,0 +1,421 @@
+[gd_scene load_steps=25 format=3 uid="uid://cn7ut62jxmgnl"]
+
+[ext_resource type="Script" uid="uid://vfmn74psi6gx" path="res://scripts/opening_screen.gd" id="1_su0nw"]
+[ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="2_1k85t"]
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="2_fs84d"]
+[ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_oba0u"]
+[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="4_le8h4"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="4_uf3dj"]
+[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="5_cncku"]
+[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="5_sdrau"]
+[ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="7_8xlpx"]
+[ext_resource type="Theme" uid="uid://vjxbkxdwdxu4" path="res://assets/UI_theme_alert.tres" id="7_33s8g"]
+[ext_resource type="Texture2D" uid="uid://d1ykhw1sfpi48" path="res://assets/boot_screen.png" id="9_vg3x7"]
+[ext_resource type="PackedScene" uid="uid://c18of0dynnf7n" path="res://scene/components/buttonSMOLBLUE.tscn" id="10_73o4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(58, 10, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evtic"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lxfb"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(176, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifa6c"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me2im"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(176, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc5y5"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vma22"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdmw2"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsk5g"]
+atlas = ExtResource("2_fs84d")
+region = Rect2(160, 48, 16, 16)
+
+[sub_resource type="Animation" id="Animation_1ftwx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fhgur"]
+resource_name = "fade"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(2.92817, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n73lu"]
+_data = {
+&"RESET": SubResource("Animation_1ftwx"),
+&"fade": SubResource("Animation_fhgur")
+}
+
+[node name="openingscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_su0nw")
+
+[node name="background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -600.0
+offset_bottom = -320.0
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 32.6
+anchor_bottom = 18.65
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1k85t")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -167.5
+offset_right = 304.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kx556")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 9.0
+offset_right = 204.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 109
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_oba0u")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_le8h4")
+theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+theme_override_font_sizes/font_size = 48
+text = "Tre's Pack Helper"
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_oba0u")
+expand_mode = 3
+flip_h = true
+
+[node name="spacer" type="Label" parent="NinePatchRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+theme_override_font_sizes/font_size = 16
+text = "Version $VERSION made for SWEM version 1.5.2"
+horizontal_alignment = 1
+
+[node name="HelperLabel4" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme = ExtResource("5_cncku")
+text = "This application is designed to create the folder system and json files for a SWEM Community Pack. 
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme = ExtResource("5_sdrau")
+text = "You have the option to add the textures into the pack through this application meaning this can completely create a community pack for you all in one go. If you choose not to have the Pack Helper add the textures, there is an INSTRUCTIONS.txt document that is generated and it will tell you what to name the textures and where to put them."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer6" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+
+[node name="spacer2" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_sdrau")
+theme_override_font_sizes/font_size = 16
+text = "A report document is also generated that logs all actions the Pack Helper does for transparency."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer5" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HelperLabel7" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_sdrau")
+theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
+text = "If you have questions or bugs, please join my
+"
+horizontal_alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
+theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
+theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
+theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
+text = "Discord server."
+uri = "https://discord.gg/GuYRWK22Mx"
+
+[node name="spacer4" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+
+[node name="HelperLabel6" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme = ExtResource("7_33s8g")
+theme_override_colors/font_color = Color(0.61846, 0, 0.0243691, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+text = "Please DO NOT use this application if you did not get it directly from me (kyraltre) on one of my pages."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+text = "~~ I can not guarantee the safety of your device while using this application ~~
+~~ if you did not get the application from me. ~~"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="spacer3" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("4_uf3dj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="warningaccept" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 14)
+layout_mode = 2
+theme = ExtResource("7_33s8g")
+theme_override_colors/font_color = Color(0.0235294, 0.396078, 0.490196, 1)
+theme_override_colors/font_outline_color = Color(0.865, 0.894, 0.89, 0.562)
+text = "I understand this warning."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="exit" type="Label" parent="NinePatchRect"]
+custom_minimum_size = Vector2(100, 14)
+layout_mode = 2
+offset_left = 41.0
+offset_top = 313.0
+offset_right = 141.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.52549, 0.203922, 0.14902, 1)
+text = "Exit"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continue" type="Label" parent="NinePatchRect"]
+visible = false
+custom_minimum_size = Vector2(150, 14)
+layout_mode = 2
+offset_left = 415.0
+offset_top = 313.0
+offset_right = 565.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.505953, 0.515687, 0.364552, 1)
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="backButton" type="TextureButton" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 297.0
+offset_right = 23.0
+offset_bottom = 313.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_evtic")
+texture_pressed = SubResource("AtlasTexture_2lxfb")
+texture_hover = SubResource("AtlasTexture_ifa6c")
+texture_disabled = SubResource("AtlasTexture_me2im")
+
+[node name="confirmButton" parent="NinePatchRect" instance=ExtResource("10_73o4v")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 535.0
+offset_top = 294.5
+offset_right = 599.0
+offset_bottom = 326.5
+button_text = "Continue"
+
+[node name="confirmButton2" type="TextureButton" parent="NinePatchRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 569.0
+offset_top = 296.5
+offset_right = 585.0
+offset_bottom = 312.5
+scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../backButton")
+focus_previous = NodePath("../VBoxContainer/Hbox2/nameCheck")
+texture_normal = SubResource("AtlasTexture_dc5y5")
+texture_pressed = SubResource("AtlasTexture_vma22")
+texture_hover = SubResource("AtlasTexture_bdmw2")
+texture_disabled = SubResource("AtlasTexture_bsk5g")
+
+[node name="errorMessage" parent="." instance=ExtResource("7_8xlpx")]
+visible = false
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_vg3x7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n73lu")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer2/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/confirmButton2" to="." method="_on_confirm_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

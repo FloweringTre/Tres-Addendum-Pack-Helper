@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://eexrhh8cyqwa"]
+
+[ext_resource type="Script" uid="uid://ddyebnqg825sq" path="res://scripts/components/button_SMOL.gd" id="1_hefb7"]
+[ext_resource type="Texture2D" uid="uid://dur3h113cvcc6" path="res://assets/largeLongButtons.png" id="2_7u3dd"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="3_c7m5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oouux"]
+atlas = ExtResource("2_7u3dd")
+region = Rect2(0, 0, 200, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7doa1"]
+atlas = ExtResource("2_7u3dd")
+region = Rect2(0, 96, 200, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x81g6"]
+atlas = ExtResource("2_7u3dd")
+region = Rect2(0, 64, 200, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2p5"]
+atlas = ExtResource("2_7u3dd")
+region = Rect2(0, 32, 200, 32)
+
+[node name="buttonLong" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 32)
+offset_right = 64.0
+offset_bottom = 32.0
+script = ExtResource("1_hefb7")
+button_text = "button"
+long = true
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_oouux")
+texture_pressed = SubResource("AtlasTexture_7doa1")
+texture_hover = SubResource("AtlasTexture_x81g6")
+texture_disabled = SubResource("AtlasTexture_6q2p5")
+
+[node name="textContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(196, 25)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="buttonLabel" type="Label" parent="textContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_c7m5k")
+theme_override_constants/line_spacing = -5
+text = "Normal and Armored
+Pasture Blankets"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

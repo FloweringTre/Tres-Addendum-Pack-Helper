@@ -1,0 +1,205 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpgiy2j33slge"]
+
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_6x5xs"]
+[ext_resource type="Script" uid="uid://b7x050qo5ygsp" path="res://scripts/components/pop_up.gd" id="2_0cii8"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="3_kx8fm"]
+[ext_resource type="PackedScene" uid="uid://cp0jrapb6x6a2" path="res://scene/components/buttonSMOL.tscn" id="4_8gsbi"]
+[ext_resource type="PackedScene" uid="uid://c18of0dynnf7n" path="res://scene/components/buttonSMOLBLUE.tscn" id="5_p00mt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlar3"]
+atlas = ExtResource("1_6x5xs")
+region = Rect2(10, 10, 28, 28)
+
+[sub_resource type="Theme" id="Theme_65ef0"]
+default_font_size = 16
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+Label/colors/font_color = Color(0.305882, 0.270588, 0.133333, 1)
+LineEdit/icons/clear = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5er8k"]
+atlas = ExtResource("1_6x5xs")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lj1"]
+atlas = ExtResource("1_6x5xs")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pby4t"]
+atlas = ExtResource("1_6x5xs")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk1f2"]
+atlas = ExtResource("1_6x5xs")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="Animation" id="Animation_ihynm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/loadingBoxContainer/Dots:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [". "]
+}
+
+[sub_resource type="Animation" id="Animation_4m8n4"]
+resource_name = "loading"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/loadingBoxContainer/Dots:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["", ". ", ". . ", ". . . "]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ylsm"]
+_data = {
+&"RESET": SubResource("Animation_ihynm"),
+&"loading": SubResource("Animation_4m8n4")
+}
+
+[node name="popUP" type="NinePatchRect"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -72.0
+offset_right = 93.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vlar3")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("2_0cii8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(172, 131)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -65.5
+offset_right = 86.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="titleLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_colors/font_color = Color(0.189345, 0.418238, 0.742626, 1)
+text = "Pop Up Title"
+horizontal_alignment = 1
+
+[node name="loadingBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Container" type="Container" parent="VBoxContainer/loadingBoxContainer"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+
+[node name="Loading" type="Label" parent="VBoxContainer/loadingBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_kx8fm")
+text = "Loading"
+
+[node name="Dots" type="Label" parent="VBoxContainer/loadingBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_kx8fm")
+text = ". "
+
+[node name="popUpText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_constants/line_spacing = -3
+text = "pop up message goes here It can be such a long message. Like so hecking long omg. This is a long long pop up message!
+SO LONGGGGG!!!!!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="continue" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(120, 14)
+layout_mode = 2
+offset_left = 59.0
+offset_top = 120.0
+offset_right = 179.0
+offset_bottom = 134.0
+alignment = 2
+
+[node name="continueLabel" type="Label" parent="continue"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_colors/font_color = Color(0.14401, 0.482904, 0.456316, 1)
+text = "Lets try that again..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="continueButton" type="TextureButton" parent="continue"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5er8k")
+texture_pressed = SubResource("AtlasTexture_u6lj1")
+texture_hover = SubResource("AtlasTexture_pby4t")
+texture_disabled = SubResource("AtlasTexture_vk1f2")
+stretch_mode = 6
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(176, 23, 10, 23)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ylsm")
+}
+
+[node name="buttons" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 106.0
+offset_right = 186.0
+offset_bottom = 138.0
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="cancelButton" parent="buttons" instance=ExtResource("4_8gsbi")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="primaryButton" parent="buttons" instance=ExtResource("5_p00mt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="continue/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="button_pressed" from="buttons/cancelButton" to="." method="_on_cancel_button_button_pressed"]
+[connection signal="button_pressed" from="buttons/primaryButton" to="." method="_on_primary_button_button_pressed"]

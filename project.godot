@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Tres Addendum Pack Helper"
+config/description="An application designed to help make resource packs to work with the swem-addenum mod."
+config/version="0.0.1"
+run/main_scene="res://scene/openingScreen.tscn"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.054902, 1)
+boot_splash/image="res://assets/boot_screen.png"
+config/icon="res://icon.svg"
+config/macos_native_icon="res://macos-tph.icns"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+GlobalScripts="*res://scripts/globals/global_scripts.gd"
+ErrorManager="*res://scripts/globals/error_manager.gd"
+TackScripts="*res://scripts/globals/tack_scripts.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale=2.0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AutoExportVersion/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://assets/7x5TinyPixelFont.ttf"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.247775, 0.27111, 0.24403, 1)

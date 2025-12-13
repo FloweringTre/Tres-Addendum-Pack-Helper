@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bicshr65lr0n1"]
+
+[ext_resource type="Script" uid="uid://2u2ewdgib3gm" path="res://scripts/components/button.gd" id="1_jb3lb"]
+[ext_resource type="Texture2D" uid="uid://cntyepmdbtbq5" path="res://assets/largeButtons.png" id="1_ksaby"]
+[ext_resource type="Theme" uid="uid://db3wwmhf400fw" path="res://assets/UI_theme_dark_big.tres" id="3_wvssa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oouux"]
+atlas = ExtResource("1_ksaby")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi53k"]
+atlas = ExtResource("1_ksaby")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvstv"]
+atlas = ExtResource("1_ksaby")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d0ty"]
+atlas = ExtResource("1_ksaby")
+region = Rect2(0, 32, 64, 32)
+
+[node name="button" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 64)
+offset_right = 128.0
+offset_bottom = 64.0
+script = ExtResource("1_jb3lb")
+button_text = "button"
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_oouux")
+texture_pressed = SubResource("AtlasTexture_bi53k")
+texture_hover = SubResource("AtlasTexture_mvstv")
+texture_disabled = SubResource("AtlasTexture_8d0ty")
+
+[node name="textContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(116, 44)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 122.0
+offset_bottom = 51.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="buttonLabel" type="Label" parent="textContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(116, 44)
+layout_mode = 2
+theme = ExtResource("3_wvssa")
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

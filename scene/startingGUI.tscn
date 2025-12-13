@@ -1,0 +1,469 @@
+[gd_scene load_steps=23 format=3 uid="uid://c7f637oqram5g"]
+
+[ext_resource type="Script" uid="uid://b6y6ldfy2e6gh" path="res://scripts/starting_gui.gd" id="1_3an53"]
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_lx5dw"]
+[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="2_em82s"]
+[ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_kp27u"]
+[ext_resource type="PackedScene" uid="uid://bicshr65lr0n1" path="res://scene/components/button.tscn" id="5_1lo41"]
+[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="5_o5bxr"]
+[ext_resource type="PackedScene" uid="uid://cp0jrapb6x6a2" path="res://scene/components/buttonSMOL.tscn" id="5_uwvmr"]
+[ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="6_iaop6"]
+[ext_resource type="Theme" uid="uid://vjxbkxdwdxu4" path="res://assets/UI_theme_alert.tres" id="7_7ylay"]
+[ext_resource type="Theme" uid="uid://d1f8o0u5d7nrp" path="res://assets/UI_theme_green.tres" id="8_e2603"]
+[ext_resource type="PackedScene" uid="uid://cdigxro282sfm" path="res://scene/components/checkAlert.tscn" id="9_xnwmn"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="10_5yckn"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="10_p8xtw"]
+[ext_resource type="PackedScene" uid="uid://bpgiy2j33slge" path="res://scene/components/pop_up.tscn" id="12_kwseo"]
+[ext_resource type="PackedScene" uid="uid://c18of0dynnf7n" path="res://scene/components/buttonSMOLBLUE.tscn" id="13_6su5t"]
+[ext_resource type="PackedScene" uid="uid://clixcby1mmxr3" path="res://scene/helpScreen.tscn" id="13_g6yan"]
+[ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="17_6xagu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
+atlas = ExtResource("1_lx5dw")
+region = Rect2(58, 10, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvqpb"]
+atlas = ExtResource("1_lx5dw")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swcsf"]
+atlas = ExtResource("1_lx5dw")
+region = Rect2(176, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a3py"]
+atlas = ExtResource("1_lx5dw")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xqp5"]
+atlas = ExtResource("1_lx5dw")
+region = Rect2(176, 48, 16, 16)
+
+[node name="StartingGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3an53")
+
+[node name="background" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -600.0
+offset_bottom = -320.0
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 32.6
+anchor_bottom = 18.65
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_6xagu")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -167.5
+offset_right = 304.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kx556")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 9.0
+offset_right = 204.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="TitleContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_kp27u")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("2_em82s")
+theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+text = "Tre's Pack Helper"
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_kp27u")
+flip_h = true
+
+[node name="Hbox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Hbox"]
+layout_mode = 2
+theme = ExtResource("2_em82s")
+text = "File Location"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/Hbox"]
+layout_mode = 2
+theme = ExtResource("7_7ylay")
+theme_override_font_sizes/font_size = 32
+text = "*"
+horizontal_alignment = 2
+
+[node name="locationText" type="LineEdit" parent="NinePatchRect/VBoxContainer/Hbox"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+focus_neighbor_right = NodePath("../pathOpenButton")
+focus_neighbor_bottom = NodePath("../../Hbox2/folderNametext")
+focus_next = NodePath("../pathOpenButton")
+placeholder_text = "C:\\Users\\[YOU]\\Desktop"
+
+[node name="pathOpenButton" parent="NinePatchRect/VBoxContainer/Hbox" instance=ExtResource("5_uwvmr")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../locationText")
+focus_neighbor_bottom = NodePath("../../Hbox2/nameCheck")
+focus_next = NodePath("../../Hbox2/folderNametext")
+focus_previous = NodePath("../locationText")
+button_text = "Open Folder"
+
+[node name="HelperLabel" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme = ExtResource("5_o5bxr")
+text = "This is where the new pack folder will be made or where the folder will be opened from."
+horizontal_alignment = 1
+
+[node name="Hbox2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Hbox2"]
+layout_mode = 2
+theme = ExtResource("2_em82s")
+text = "Pack Name"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/Hbox2"]
+layout_mode = 2
+theme = ExtResource("7_7ylay")
+theme_override_font_sizes/font_size = 32
+text = "*"
+horizontal_alignment = 2
+
+[node name="folderNametext" type="LineEdit" parent="NinePatchRect/VBoxContainer/Hbox2"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Hbox/locationText")
+focus_neighbor_right = NodePath("../nameCheck")
+focus_next = NodePath("../nameCheck")
+focus_previous = NodePath("../../Hbox/pathOpenButton")
+
+[node name="nameCheck" parent="NinePatchRect/VBoxContainer/Hbox2" instance=ExtResource("5_uwvmr")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../folderNametext")
+focus_neighbor_top = NodePath("../../Hbox/pathOpenButton")
+focus_previous = NodePath("../folderNametext")
+button_text = "Clean"
+
+[node name="Stage1BoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
+custom_minimum_size = Vector2(500, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_o5bxr")
+text = "This is what the new pack folder will be named The name needs to only include lower case letters, numbers, and underscores. The 'Clean' button will ensure it is java compliant for you!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel4" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme = ExtResource("8_e2603")
+text = "Each pack needs to have a unique name. If two packs or tack items have the same name, errors will occur."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
+custom_minimum_size = Vector2(0, 49)
+layout_mode = 2
+theme = ExtResource("2_em82s")
+text = "Press the buttons to earn a chech mark on each line.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel6" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_5yckn")
+text = "After you have a check mark in each required field above,
+you will be able to press the button below and start generating your SWEM Community Pack!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage2BoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Stage2Text2" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme = ExtResource("7_7ylay")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Stage2Text" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme = ExtResource("2_em82s")
+text = "Pack folder has been generated!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme = ExtResource("5_o5bxr")
+text = "What files would you like to make?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="coatsButton" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/HBoxContainer" instance=ExtResource("5_1lo41")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Coats"
+
+[node name="tackButton" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/HBoxContainer" instance=ExtResource("5_1lo41")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Tack"
+
+[node name="Container2" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+theme = ExtResource("5_o5bxr")
+text = "Optional: Set the default texture artist for this pack."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Hbox3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
+visible = false
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme = ExtResource("10_5yckn")
+text = "Default Artist Name:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
+visible = false
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+
+[node name="artistNametext" type="LineEdit" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../Hbox/locationText")
+focus_previous = NodePath("../../../Hbox/pathOpenButton")
+placeholder_text = "This name will pre-populate on all the generators to save time!"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.5
+offset_top = -22.0
+offset_right = 165.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="HelperLabel7" type="Label" parent="NinePatchRect/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("8_e2603")
+text = "If you have questions or bugs, please join my
+"
+horizontal_alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
+theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
+theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
+theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
+text = "Discord server."
+uri = "https://discord.gg/GuYRWK22Mx"
+
+[node name="backButton" type="TextureButton" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 7.0
+offset_top = 297.0
+offset_right = 23.0
+offset_bottom = 313.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_bvqpb")
+texture_pressed = SubResource("AtlasTexture_swcsf")
+texture_hover = SubResource("AtlasTexture_5a3py")
+texture_disabled = SubResource("AtlasTexture_8xqp5")
+
+[node name="HelperLabel5" type="Label" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 41.0
+offset_top = 313.0
+offset_right = 65.0
+offset_bottom = 327.0
+size_flags_horizontal = 4
+theme = ExtResource("10_p8xtw")
+theme_override_colors/font_color = Color(0.493728, 0.364523, 0.227402, 1)
+text = "Exit "
+vertical_alignment = 2
+
+[node name="confirmButton" parent="NinePatchRect" instance=ExtResource("13_6su5t")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = 295.5
+offset_right = 601.0
+offset_bottom = 327.5
+button_text = "Open the Pack!"
+
+[node name="butterflys" type="Control" parent="NinePatchRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.5
+offset_right = 45.0
+offset_bottom = 45.5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 90.0
+offset_bottom = 33.0
+texture = ExtResource("3_kp27u")
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 509.0
+offset_top = 3.0
+offset_right = 539.0
+offset_bottom = 33.0
+texture = ExtResource("3_kp27u")
+flip_h = true
+
+[node name="checkPathLOCA" parent="." instance=ExtResource("9_xnwmn")]
+layout_mode = 0
+offset_left = 187.0
+offset_top = -121.0
+offset_right = 203.0
+offset_bottom = -105.0
+scale = Vector2(1.5, 1.5)
+
+[node name="checkPathFOLD" parent="." instance=ExtResource("9_xnwmn")]
+layout_mode = 0
+offset_left = 187.0
+offset_top = -52.0
+offset_right = 203.0
+offset_bottom = -36.0
+scale = Vector2(1.5, 1.5)
+
+[node name="popUP" parent="." instance=ExtResource("12_kwseo")]
+visible = false
+layout_mode = 1
+
+[node name="popUP2" parent="." instance=ExtResource("12_kwseo")]
+visible = false
+layout_mode = 1
+
+[node name="popUPload" parent="." instance=ExtResource("12_kwseo")]
+visible = false
+layout_mode = 1
+
+[node name="helpscreen" parent="." instance=ExtResource("13_g6yan")]
+visible = false
+layout_mode = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(400, 300)
+theme_override_colors/folder_icon_color = Color(0.760784, 0.917647, 0.729412, 1)
+theme_override_colors/file_icon_color = Color(0.586162, 0.854457, 0.848783, 1)
+ok_button_text = "Select Current Folder"
+dialog_hide_on_ok = true
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="errorMessage" parent="." instance=ExtResource("6_iaop6")]
+visible = false
+layout_mode = 1
+
+[connection signal="focus_exited" from="NinePatchRect/VBoxContainer/Hbox/locationText" to="." method="_on_location_text_focus_exited"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/Hbox/locationText" to="." method="_on_location_text_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/Hbox2/folderNametext" to="." method="_on_folder_nametext_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3/artistNametext" to="." method="_on_artist_nametext_text_changed"]
+[connection signal="pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdigxro282sfm"]
+
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_rjuwm"]
+[ext_resource type="Script" uid="uid://cv0htppk6hpen" path="res://scripts/components/check_alert.gd" id="1_wq40h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3xry"]
+atlas = ExtResource("1_rjuwm")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lma4j"]
+atlas = ExtResource("1_rjuwm")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybhe7"]
+atlas = ExtResource("1_rjuwm")
+region = Rect2(160, 64, 16, 16)
+
+[node name="checkAlert" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_wq40h")
+
+[node name="trueValue" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_d3xry")
+expand_mode = 3
+
+[node name="falseValue" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_lma4j")
+
+[node name="unsureValue" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_ybhe7")

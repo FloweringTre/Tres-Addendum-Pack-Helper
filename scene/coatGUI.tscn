@@ -1,0 +1,665 @@
+[gd_scene load_steps=19 format=3 uid="uid://dum14k8byt87m"]
+
+[ext_resource type="Script" uid="uid://bp15t7w6hj3dj" path="res://scripts/coat_gui.gd" id="1_bgw28"]
+[ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="2_ugfvs"]
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="2_ypuxh"]
+[ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_2qsf6"]
+[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="4_gvril"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="5_0f6da"]
+[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="5_fupdb"]
+[ext_resource type="Theme" uid="uid://vjxbkxdwdxu4" path="res://assets/UI_theme_alert.tres" id="5_ra54s"]
+[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="5_sgdhu"]
+[ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="6_m2onb"]
+[ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://scene/components/buttonSMOL2.tscn" id="7_tgfnp"]
+[ext_resource type="PackedScene" uid="uid://cdigxro282sfm" path="res://scene/components/checkAlert.tscn" id="9_edoao"]
+[ext_resource type="Theme" uid="uid://d1f8o0u5d7nrp" path="res://assets/UI_theme_green.tres" id="9_yn7pw"]
+[ext_resource type="PackedScene" uid="uid://bpgiy2j33slge" path="res://scene/components/pop_up.tscn" id="10_75oqe"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="10_d6poe"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://scene/components/buttonSMOL2_blue.tscn" id="13_1pstn"]
+[ext_resource type="PackedScene" uid="uid://clixcby1mmxr3" path="res://scene/helpScreen.tscn" id="13_f6knk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
+atlas = ExtResource("2_ypuxh")
+region = Rect2(58, 10, 28, 28)
+
+[node name="coatGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgw28")
+
+[node name="background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -600.0
+offset_bottom = -320.0
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 32.6
+anchor_bottom = 18.65
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ugfvs")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -167.5
+offset_right = 304.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kx556")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 9.0
+offset_right = 204.0
+offset_bottom = 76.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TitleContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_2qsf6")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("4_gvril")
+theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+text = "New Horse Coat"
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_2qsf6")
+flip_h = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+alignment = 1
+
+[node name="artist" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2/artist"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Texture Artist"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2/artist"]
+layout_mode = 2
+theme = ExtResource("5_ra54s")
+text = "*"
+horizontal_alignment = 2
+
+[node name="artistText" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer2/artist"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../inspiration/inspoText")
+focus_next = NodePath("../../inspiration/inspoText")
+theme = ExtResource("5_fupdb")
+placeholder_text = "Who made the coat texture?"
+
+[node name="inspiration" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer2/inspiration"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Inspiration"
+horizontal_alignment = 2
+
+[node name="inspoText" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer2/inspiration"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../artist/artistText")
+focus_neighbor_bottom = NodePath("../../../coatName/coatText")
+focus_previous = NodePath("../../artist/artistText")
+theme = ExtResource("5_fupdb")
+placeholder_text = "My IRL horse || SSO || N/a"
+
+[node name="coatName" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/coatName"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Coat Name"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/coatName"]
+layout_mode = 2
+theme = ExtResource("5_ra54s")
+text = "*"
+horizontal_alignment = 2
+
+[node name="coatText" type="LineEdit" parent="NinePatchRect/VBoxContainer/coatName"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer2/inspiration/inspoText")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/VBoxContainer/cycling/lapisCheckBox")
+theme = ExtResource("5_fupdb")
+placeholder_text = "quiz_the_test_pony"
+
+[node name="nameCheck" parent="NinePatchRect/VBoxContainer/coatName" instance=ExtResource("7_tgfnp")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+button_text = "Clean *"
+
+[node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_yn7pw")
+theme_override_constants/line_spacing = -2
+text = "The name needs to only include lower case letters, numbers, and underscores."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+theme_override_constants/line_spacing = -2
+text = "It is recommended to name the coat \"artist_name_coat_name\" as each coat has to be uniquely named."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_ra54s")
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.579)
+theme_override_constants/line_spacing = -2
+text = "* Press the 'Clean' button"
+horizontal_alignment = 1
+
+[node name="HelperLabel4" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+theme_override_constants/line_spacing = -2
+text = "to make your text java compliant and ready to be saved into the pack!"
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/Container"]
+position = Vector2(3.7868, 3)
+scale = Vector2(3.07153, 1)
+points = PackedVector2Array(176.296, 2, -1, 2)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="helperLabel7" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme = ExtResource("5_sgdhu")
+text = "~~ Set Coat Information ~~"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(546, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="wings" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/wings"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Has wings?"
+horizontal_alignment = 2
+
+[node name="wingsCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/wings"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../cycling/lapisCheckBox")
+focus_neighbor_bottom = NodePath("../../../../baseColorp2/Chestnut/chestnutCheckBox7")
+focus_next = NodePath("../../../../baseColorp2/Black/blackCheckBox")
+focus_previous = NodePath("../../cycling/lapisCheckBox")
+
+[node name="wingsLabel" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/wings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "No"
+
+[node name="breeding" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/breeding"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Obtained by Breeding?"
+horizontal_alignment = 2
+
+[node name="breedingCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/breeding"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../cycling/lapisCheckBox")
+focus_neighbor_bottom = NodePath("../../../../baseColorp2/Chestnut/chestnutCheckBox7")
+focus_next = NodePath("../../../../baseColorp2/Black/blackCheckBox")
+focus_previous = NodePath("../../cycling/lapisCheckBox")
+button_pressed = true
+
+[node name="breedingLabel" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/breeding"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Yes"
+
+[node name="cycling" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/cycling"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Lapis Cyclable?"
+horizontal_alignment = 2
+
+[node name="lapisCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/cycling"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../../coatName/coatText")
+focus_neighbor_right = NodePath("../../breeding/breedingCheckBox")
+focus_neighbor_bottom = NodePath("../../../../baseColorp2/Black/blackCheckBox")
+focus_next = NodePath("../../breeding/breedingCheckBox")
+button_pressed = true
+
+[node name="lapisLabel" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/cycling"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Yes"
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/Container"]
+position = Vector2(37.3425, 2)
+scale = Vector2(3.0766, 1)
+points = PackedVector2Array(-7, 2, -7, 60)
+width = 0.5
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Preload your textures into the pack!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="renderButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" instance=ExtResource("7_tgfnp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="renderLineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = " Legacy Coat Texture"
+editable = false
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+theme_override_constants/line_spacing = -5
+text = "The selected texture will be copied to the pack. If left blank, you will need to add it manually."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Container2" type="Container" parent="NinePatchRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/Container2"]
+visible = false
+position = Vector2(3.7868, 3)
+scale = Vector2(3.07153, 1)
+points = PackedVector2Array(176.296, 2, -1, 2)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="baseColorp1" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp1"]
+layout_mode = 2
+theme = ExtResource("5_fupdb")
+text = "Base Colors:"
+horizontal_alignment = 2
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp1"]
+layout_mode = 2
+theme = ExtResource("10_d6poe")
+text = "(These are the foal coats this coat can come from.)"
+vertical_alignment = 2
+
+[node name="baseColorp2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Black" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="blackCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/Black"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/cycling/lapisCheckBox")
+focus_neighbor_right = NodePath("../../Gray/grayCheckBox2")
+focus_next = NodePath("../../Gray/grayCheckBox2")
+focus_previous = NodePath("../../../HBoxContainer/VBoxContainer/breeding/breedingCheckBox")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/Black"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Black"
+vertical_alignment = 1
+
+[node name="Gray" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="grayCheckBox2" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/Gray"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Black/blackCheckBox")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/cycling/lapisCheckBox")
+focus_neighbor_right = NodePath("../../White/whiteCheckBox3")
+focus_next = NodePath("../../White/whiteCheckBox3")
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/Gray"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Gray"
+
+[node name="White" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="whiteCheckBox3" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/White"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Gray/grayCheckBox2")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/cycling/lapisCheckBox")
+focus_neighbor_right = NodePath("../../Creamy/creamyCheckBox4")
+focus_next = NodePath("../../Creamy/creamyCheckBox4")
+focus_previous = NodePath("../../Gray/grayCheckBox2")
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/White"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "White"
+
+[node name="Creamy" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="creamyCheckBox4" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/Creamy"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../White/whiteCheckBox3")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/cycling/lapisCheckBox")
+focus_neighbor_right = NodePath("../../Brown/brownCheckBox5")
+focus_next = NodePath("../../Brown/brownCheckBox5")
+focus_previous = NodePath("../../White/whiteCheckBox3")
+
+[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/Creamy"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Creamy"
+
+[node name="Brown" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="brownCheckBox5" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/Brown"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Creamy/creamyCheckBox4")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/breeding/breedingCheckBox")
+focus_neighbor_right = NodePath("../../DBrown/d_brownCheckBox6")
+focus_next = NodePath("../../DBrown/d_brownCheckBox6")
+focus_previous = NodePath("../../Creamy/creamyCheckBox4")
+
+[node name="Label5" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/Brown"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Brown"
+
+[node name="DBrown" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="d_brownCheckBox6" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/DBrown"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Brown/brownCheckBox5")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/breeding/breedingCheckBox")
+focus_neighbor_right = NodePath("../../Chestnut/chestnutCheckBox7")
+focus_next = NodePath("../../Chestnut/chestnutCheckBox7")
+focus_previous = NodePath("../../Brown/brownCheckBox5")
+
+[node name="Label6" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/DBrown"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Dark Brown"
+
+[node name="Chestnut" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/baseColorp2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="chestnutCheckBox7" type="CheckBox" parent="NinePatchRect/VBoxContainer/baseColorp2/Chestnut"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../DBrown/d_brownCheckBox6")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer/breeding/breedingCheckBox")
+focus_previous = NodePath("../../DBrown/d_brownCheckBox6")
+
+[node name="Label7" type="Label" parent="NinePatchRect/VBoxContainer/baseColorp2/Chestnut"]
+layout_mode = 2
+theme = ExtResource("5_0f6da")
+text = "Chestnut
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 313.0
+offset_right = 560.0
+offset_bottom = 327.0
+
+[node name="required" type="Label" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ra54s")
+text = "*"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_d6poe")
+text = "= required field"
+
+[node name="confirmButton" parent="NinePatchRect" instance=ExtResource("13_1pstn")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = 306.0
+offset_right = 601.0
+offset_bottom = 328.0
+button_text = "Generate"
+
+[node name="backButton" parent="NinePatchRect" instance=ExtResource("7_tgfnp")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 306.0
+offset_right = 71.0
+offset_bottom = 328.0
+button_text = "Main Menu"
+
+[node name="butterflys" type="Control" parent="NinePatchRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.5
+offset_right = 45.0
+offset_bottom = 45.5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 90.0
+offset_bottom = 33.0
+texture = ExtResource("3_2qsf6")
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 509.0
+offset_top = 3.0
+offset_right = 539.0
+offset_bottom = 33.0
+texture = ExtResource("3_2qsf6")
+flip_h = true
+
+[node name="popUP_Saved" parent="." instance=ExtResource("10_75oqe")]
+visible = false
+layout_mode = 1
+
+[node name="popUP2_Dupe" parent="." instance=ExtResource("10_75oqe")]
+visible = false
+layout_mode = 1
+
+[node name="popUPexit" parent="." instance=ExtResource("10_75oqe")]
+visible = false
+layout_mode = 1
+
+[node name="checkPath" parent="." instance=ExtResource("9_edoao")]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 124.0
+offset_top = -92.0
+offset_right = 139.0
+offset_bottom = -76.0
+scale = Vector2(1.5, 1.5)
+
+[node name="helpscreen" parent="." instance=ExtResource("13_f6knk")]
+visible = false
+layout_mode = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 4
+size = Vector2i(400, 300)
+theme = ExtResource("5_fupdb")
+theme_override_colors/folder_icon_color = Color(0.758928, 0.918193, 0.727778, 1)
+theme_override_colors/file_icon_color = Color(0.584314, 0.854902, 0.847059, 1)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png;PNG Image")
+use_native_dialog = true
+
+[node name="popUPload" parent="." instance=ExtResource("10_75oqe")]
+visible = false
+layout_mode = 1
+
+[node name="errorMessage" parent="." instance=ExtResource("6_m2onb")]
+visible = false
+layout_mode = 1
+
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/HBoxContainer2/artist/artistText" to="." method="_on_artist_text_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/HBoxContainer2/inspiration/inspoText" to="." method="_on_inspo_text_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/coatName/coatText" to="." method="_on_coat_text_text_changed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/wings/wingsCheckBox" to="." method="_on_wings_check_box_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/breeding/breedingCheckBox" to="." method="_on_breeding_check_box_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/cycling/lapisCheckBox" to="." method="_on_lapis_check_box_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/renderButton" to="." method="_on_render_button_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/Black/blackCheckBox" to="." method="_on_black_check_box_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/Gray/grayCheckBox2" to="." method="_on_gray_check_box_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/White/whiteCheckBox3" to="." method="_on_white_check_box_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/Creamy/creamyCheckBox4" to="." method="_on_creamy_check_box_4_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/Brown/brownCheckBox5" to="." method="_on_brown_check_box_5_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/DBrown/d_brownCheckBox6" to="." method="_on_d_brown_check_box_6_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/baseColorp2/Chestnut/chestnutCheckBox7" to="." method="_on_chestnut_check_box_7_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

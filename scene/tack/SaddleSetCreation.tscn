@@ -1,0 +1,927 @@
+[gd_scene load_steps=23 format=3 uid="uid://csx4f04hhg1bp"]
+
+[ext_resource type="Script" uid="uid://cd66utt7klksp" path="res://scripts/tack/saddle_set_creation.gd" id="1_i57yo"]
+[ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="2_bc2tp"]
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="2_pggdn"]
+[ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_sxpko"]
+[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="4_d8m3x"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="5_ri0vv"]
+[ext_resource type="Theme" uid="uid://vjxbkxdwdxu4" path="res://assets/UI_theme_alert.tres" id="6_7dh00"]
+[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="6_qgv75"]
+[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="7_gnnr1"]
+[ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="8_fc084"]
+[ext_resource type="PackedScene" uid="uid://bpgiy2j33slge" path="res://scene/components/pop_up.tscn" id="9_esgrn"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="9_ijbno"]
+[ext_resource type="PackedScene" uid="uid://cdigxro282sfm" path="res://scene/components/checkAlert.tscn" id="10_moihw"]
+[ext_resource type="PackedScene" uid="uid://clixcby1mmxr3" path="res://scene/helpScreen.tscn" id="11_bpiip"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://scene/components/buttonSMOL2_blue.tscn" id="11_hhc6g"]
+[ext_resource type="Texture2D" uid="uid://gmchkp7i7m5e" path="res://assets/rackResources/rack_blanket_5_english_blanket.png" id="12_bx8sb"]
+[ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://scene/components/buttonSMOL2.tscn" id="12_iu2hw"]
+[ext_resource type="Texture2D" uid="uid://btrg0jid24lsi" path="res://assets/rackResources/rack_blanket_5_western_blanket.png" id="13_qfa46"]
+[ext_resource type="Texture2D" uid="uid://b2rxjq35frach" path="res://assets/rackResources/rack_saddle_english_blanket.png" id="18_skpnq"]
+[ext_resource type="Texture2D" uid="uid://dq0pu42fpexq8" path="res://assets/rackResources/rack_saddle_girth_strap.png" id="19_q8o76"]
+[ext_resource type="Texture2D" uid="uid://dnmiwa5d64mio" path="res://assets/rackResources/rack_saddle_western_blanket.png" id="20_1j3a8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
+atlas = ExtResource("2_pggdn")
+region = Rect2(58, 10, 28, 28)
+
+[node name="saddleSetCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i57yo")
+
+[node name="background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -600.0
+offset_bottom = -320.0
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 32.6
+anchor_bottom = 18.65
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bc2tp")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -167.5
+offset_right = 304.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kx556")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 9.0
+offset_right = 204.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="TitleContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_sxpko")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("4_d8m3x")
+theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+text = "Saddle Tack Set"
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("3_sxpko")
+flip_h = true
+
+[node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme = ExtResource("5_ri0vv")
+text = "This will generate one Saddle, Blanket, Bridle, Breast Collar, Girth Strap, and Leg Wraps."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+alignment = 1
+
+[node name="artist" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3/artist"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Texture Artist"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3/artist"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="artistText" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer3/artist"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_neighbor_right = NodePath("../../inspiration/inspoText")
+focus_neighbor_bottom = NodePath("../../../tackName/tackText")
+focus_next = NodePath("../../inspiration/inspoText")
+theme = ExtResource("6_7dh00")
+placeholder_text = "Who made the tack texture?"
+
+[node name="inspiration" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3/inspiration"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Inspiration"
+horizontal_alignment = 2
+
+[node name="inspoText" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer3/inspiration"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../artist/artistText")
+focus_neighbor_bottom = NodePath("../../../tackName/tackText")
+focus_next = NodePath("../../../tackName/tackText")
+focus_previous = NodePath("../../artist/artistText")
+theme = ExtResource("6_7dh00")
+placeholder_text = "IRL Tack || SSO || N/a"
+
+[node name="tackName" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/tackName"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Tack Set Name"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/tackName"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="tackText" type="LineEdit" parent="NinePatchRect/VBoxContainer/tackName"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer3/artist/artistText")
+focus_previous = NodePath("../../HBoxContainer3/inspiration/inspoText")
+placeholder_text = "Indigo"
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/tackName"]
+custom_minimum_size = Vector2(49, 0)
+layout_mode = 2
+
+[node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme = ExtResource("7_gnnr1")
+text = "All items will include the Tack Set Name. See below a preview of how the item and texture names appear:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="previewBox" type="HSplitContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 2
+
+[node name="inGameBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/previewBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/previewBox/inGameBoxContainer"]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "In Game Item Name: "
+
+[node name="inGameLabel" type="Label" parent="NinePatchRect/VBoxContainer/previewBox/inGameBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(151, 0)
+layout_mode = 2
+theme = ExtResource("5_ri0vv")
+text_overrun_behavior = 3
+
+[node name="dataBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/previewBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/previewBox/dataBoxContainer2"]
+custom_minimum_size = Vector2(106, 0)
+layout_mode = 2
+text = "Texture/Data Name: "
+
+[node name="dataLabel" type="Label" parent="NinePatchRect/VBoxContainer/previewBox/dataBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("5_ri0vv")
+text_overrun_behavior = 3
+
+[node name="Spacer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+alignment = 1
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/Spacer"]
+position = Vector2(12.3983, 3)
+scale = Vector2(3.08166, 1)
+points = PackedVector2Array(176.296, 2, -1, 2)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="helperLabel7" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_gnnr1")
+text = "~~ Set Tack Information ~~"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(546, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(207, 0)
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="tackType" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Saddle Type:"
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType"]
+custom_minimum_size = Vector2(7, 3)
+layout_mode = 2
+
+[node name="SaddleCheckButton" type="OptionButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Western"
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "Adventure"
+popup/item_2/id = 2
+
+[node name="tackType2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType2"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Bridle Type:"
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType2"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType2"]
+custom_minimum_size = Vector2(11, 0)
+layout_mode = 2
+
+[node name="BridleCheckButton" type="OptionButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Western"
+popup/item_1/text = "English"
+popup/item_1/id = 1
+popup/item_2/text = "Adventure"
+popup/item_2/id = 2
+
+[node name="tackType3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType3"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Blanket Type:"
+
+[node name="blanketrequired" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType3"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
+
+[node name="BlanketCheckButton" type="OptionButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Western"
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+position = Vector2(205.267, 5.33334)
+scale = Vector2(9.23273, 6.83333)
+points = PackedVector2Array(0, 0, 0, 10)
+width = 0.1
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="custCheck" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/custCheck"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Custom Blanket Rack?"
+horizontal_alignment = 2
+
+[node name="custCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/custCheck"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../../../tackName/tackText")
+focus_neighbor_right = NodePath("../../armorCheck/armorCheckBox")
+focus_neighbor_bottom = NodePath("../../../EDITBoxContainer/redSpinBox")
+focus_next = NodePath("../../armorCheck/armorCheckBox")
+
+[node name="custLabel" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/custCheck"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(21, 0)
+layout_mode = 2
+theme = ExtResource("5_ri0vv")
+text = "No"
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+
+[node name="armorCheck" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/armorCheck"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Can be worn with Armor?"
+horizontal_alignment = 2
+
+[node name="armorCheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/armorCheck"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../custCheck/custCheckBox")
+focus_neighbor_top = NodePath("../../../../../tackName/tackText")
+focus_neighbor_bottom = NodePath("../../../EDITBoxContainer/blueSpinBox")
+focus_next = NodePath("../../../EDITBoxContainer/redSpinBox")
+focus_previous = NodePath("../../custCheck/custCheckBox")
+
+[node name="armorLabel" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/armorCheck"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(21, 0)
+layout_mode = 2
+theme = ExtResource("5_ri0vv")
+text = "No"
+
+[node name="EDITBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+custom_minimum_size = Vector2(13, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Rack Color:"
+horizontal_alignment = 2
+
+[node name="redSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer/custCheck/custCheckBox")
+focus_neighbor_right = NodePath("../greenSpinBox")
+focus_neighbor_bottom = NodePath("../../moneyCheck/coinOptions")
+focus_next = NodePath("../greenSpinBox")
+focus_previous = NodePath("../../HBoxContainer/armorCheck/armorCheckBox")
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(0.605674, 1.66051e-06, 3.85046e-07, 1)
+text = "Red  "
+horizontal_alignment = 2
+
+[node name="greenSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../redSpinBox")
+focus_neighbor_top = NodePath("../../HBoxContainer/custCheck/custCheckBox")
+focus_neighbor_right = NodePath("../blueSpinBox")
+focus_neighbor_bottom = NodePath("../../moneyCheck/coinOptions")
+focus_next = NodePath("../blueSpinBox")
+focus_previous = NodePath("../redSpinBox")
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(1.92523e-06, 0.41793, 1.92523e-07, 1)
+text = "Green  "
+horizontal_alignment = 2
+
+[node name="blueSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../greenSpinBox")
+focus_neighbor_top = NodePath("../../HBoxContainer/armorCheck/armorCheckBox")
+focus_neighbor_bottom = NodePath("../../moneyCheck/coinOptions")
+focus_next = NodePath("../../moneyCheck/coinOptions")
+focus_previous = NodePath("../greenSpinBox")
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+
+[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(0.0936844, 0.321806, 0.95922, 1)
+text = "Blue"
+horizontal_alignment = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+position = Vector2(299, -1.5)
+color = Color(0.337255, 0.27451, 0.203922, 1)
+polygon = PackedVector2Array(0, 0, 26, 0, 26, 26, 0, 26)
+
+[node name="colorPreview" type="Polygon2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(300, -0.5)
+polygon = PackedVector2Array(0, 0, 24, 0, 24, 24, 0, 24)
+
+[node name="STATICBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+custom_minimum_size = Vector2(13, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Rack Color:"
+horizontal_alignment = 2
+
+[node name="redSpinBoxs" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+editable = false
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(0.45038, 0.249676, 0.237129, 1)
+text = "Red  "
+horizontal_alignment = 2
+
+[node name="greenSpinBoxs" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+editable = false
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(0.363304, 0.402131, 0.317398, 1)
+text = "Green  "
+horizontal_alignment = 2
+
+[node name="blueSpinBoxs" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("4_d8m3x")
+max_value = 255.0
+step = 0.1
+value = 255.0
+editable = false
+
+[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+theme_override_colors/font_color = Color(0.383492, 0.452497, 0.609917, 1)
+text = "Blue"
+horizontal_alignment = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+position = Vector2(299, -1.5)
+color = Color(0.337255, 0.27451, 0.203922, 1)
+polygon = PackedVector2Array(0, 0, 26, 0, 26, 26, 0, 26)
+
+[node name="colorPreviews" type="Polygon2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/STATICBoxContainer"]
+position = Vector2(300, -0.5)
+polygon = PackedVector2Array(0, 0, 24, 0, 24, 24, 0, 24)
+
+[node name="moneyCheck" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/moneyCheck"]
+layout_mode = 2
+theme = ExtResource("6_qgv75")
+text = "Purchasing Coin"
+horizontal_alignment = 2
+
+[node name="required" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/moneyCheck"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="coinOptions" type="OptionButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/moneyCheck"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../EDITBoxContainer/greenSpinBox")
+focus_neighbor_bottom = NodePath("../../../../HBoxContainer5/breastCollarBox/breastCollarSpinBox")
+focus_next = NodePath("../../../../HBoxContainer5/saddleBox/saddleSpinBox")
+focus_previous = NodePath("../../STATICBoxContainer/blueSpinBoxs")
+theme = ExtResource("5_ri0vv")
+item_count = 7
+popup/item_0/text = "Copper"
+popup/item_1/text = "Iron"
+popup/item_1/id = 1
+popup/item_2/text = "Emerald"
+popup/item_2/id = 2
+popup/item_3/text = "Gold"
+popup/item_3/id = 3
+popup/item_4/text = "Diamond"
+popup/item_4/id = 4
+popup/item_5/text = "Netherite"
+popup/item_5/id = 5
+popup/item_6/text = "Amethyst"
+popup/item_6/id = 6
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/moneyCheck"]
+custom_minimum_size = Vector2(13, 0)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_gnnr1")
+text = "      Set Coin Costs"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="saddleBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/saddleBox"]
+layout_mode = 2
+text = "Saddles:"
+
+[node name="saddleSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/saddleBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_right = NodePath("../../bridleBox/bridleSpinBox")
+focus_next = NodePath("../../bridleBox/bridleSpinBox")
+focus_previous = NodePath("../../../HBoxContainer/VBoxContainer2/moneyCheck/coinOptions")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 16.0
+alignment = 1
+
+[node name="bridleBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/bridleBox"]
+layout_mode = 2
+text = "Bridles:"
+
+[node name="bridleSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/bridleBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../saddleBox/saddleSpinBox")
+focus_neighbor_right = NodePath("../../blanketBox/blanketSpinBox")
+focus_next = NodePath("../../blanketBox/blanketSpinBox")
+focus_previous = NodePath("../../saddleBox/saddleSpinBox")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 5.0
+alignment = 1
+
+[node name="blanketBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/blanketBox"]
+layout_mode = 2
+text = "Blankets:"
+
+[node name="blanketSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/blanketBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../bridleBox/bridleSpinBox")
+focus_neighbor_right = NodePath("../../bridleBox/bridleSpinBox")
+focus_next = NodePath("../../legWrapsBox/legWrapsSpinBox")
+focus_previous = NodePath("../../bridleBox/bridleSpinBox")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 5.0
+alignment = 1
+
+[node name="legWrapsBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/legWrapsBox"]
+layout_mode = 2
+text = "Leg Wraps:"
+
+[node name="legWrapsSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/legWrapsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../blanketBox/blanketSpinBox")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer2/moneyCheck/coinOptions")
+focus_neighbor_right = NodePath("../../breastCollarBox/breastCollarSpinBox")
+focus_next = NodePath("../../breastCollarBox/breastCollarSpinBox")
+focus_previous = NodePath("../../blanketBox/blanketSpinBox")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 4.0
+alignment = 1
+
+[node name="breastCollarBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/breastCollarBox"]
+layout_mode = 2
+text = "Breast Collars:"
+
+[node name="breastCollarSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/breastCollarBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../legWrapsBox/legWrapsSpinBox")
+focus_neighbor_top = NodePath("../../../HBoxContainer/VBoxContainer2/moneyCheck/coinOptions")
+focus_neighbor_right = NodePath("../../girthStrapBox/girthStrapSpinBox")
+focus_next = NodePath("../../girthStrapBox/girthStrapSpinBox")
+focus_previous = NodePath("../../legWrapsBox/legWrapsSpinBox")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 10.0
+alignment = 1
+
+[node name="girthStrapBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer5/girthStrapBox"]
+layout_mode = 2
+text = "Grith Straps:"
+
+[node name="girthStrapSpinBox" type="SpinBox" parent="NinePatchRect/VBoxContainer/HBoxContainer5/girthStrapBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../breastCollarBox/breastCollarSpinBox")
+focus_previous = NodePath("../../breastCollarBox/breastCollarSpinBox")
+theme = ExtResource("4_d8m3x")
+min_value = 1.0
+max_value = 64.0
+value = 3.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 313.0
+offset_right = 560.0
+offset_bottom = 327.0
+
+[node name="required" type="Label" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_7dh00")
+text = "*"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_ijbno")
+text = "= required field"
+
+[node name="confirmButton" parent="NinePatchRect" instance=ExtResource("11_hhc6g")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = 306.0
+offset_right = 601.0
+offset_bottom = 328.0
+button_text = "Generate"
+
+[node name="backButton" parent="NinePatchRect" instance=ExtResource("12_iu2hw")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 306.5
+offset_right = 71.0
+offset_bottom = 328.5
+button_text = "Tack Menu"
+
+[node name="butterflys" type="Control" parent="NinePatchRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.5
+offset_right = 45.0
+offset_bottom = 45.5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 90.0
+offset_bottom = 33.0
+texture = ExtResource("3_sxpko")
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+offset_left = 509.0
+offset_top = 3.0
+offset_right = 539.0
+offset_bottom = 33.0
+texture = ExtResource("3_sxpko")
+flip_h = true
+
+[node name="popUP_Saved" parent="." instance=ExtResource("9_esgrn")]
+visible = false
+layout_mode = 1
+
+[node name="popUP2_Dupe" parent="." instance=ExtResource("9_esgrn")]
+visible = false
+layout_mode = 1
+
+[node name="popUPexit" parent="." instance=ExtResource("9_esgrn")]
+visible = false
+layout_mode = 1
+
+[node name="popUPload" parent="." instance=ExtResource("9_esgrn")]
+visible = false
+layout_mode = 1
+
+[node name="errorMessage" parent="." instance=ExtResource("8_fc084")]
+visible = false
+layout_mode = 1
+
+[node name="checkPath" parent="." instance=ExtResource("10_moihw")]
+visible = false
+offset_left = 161.0
+offset_top = -49.0
+offset_right = 177.0
+offset_bottom = -33.0
+scale = Vector2(1.5, 1.5)
+
+[node name="helpscreen" parent="." instance=ExtResource("11_bpiip")]
+visible = false
+layout_mode = 1
+
+[node name="rackTemplates" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Eng_Blanket5" type="Sprite2D" parent="rackTemplates"]
+unique_name_in_owner = true
+position = Vector2(65, 63)
+texture = ExtResource("12_bx8sb")
+
+[node name="West_Blanket5" type="Sprite2D" parent="rackTemplates"]
+unique_name_in_owner = true
+position = Vector2(203, 64)
+texture = ExtResource("13_qfa46")
+
+[node name="Eng_Saddle" type="Sprite2D" parent="rackTemplates"]
+unique_name_in_owner = true
+position = Vector2(68, 202)
+texture = ExtResource("18_skpnq")
+
+[node name="Girth_Saddle" type="Sprite2D" parent="rackTemplates"]
+unique_name_in_owner = true
+position = Vector2(73, 351)
+texture = ExtResource("19_q8o76")
+
+[node name="West_Saddle" type="Sprite2D" parent="rackTemplates"]
+unique_name_in_owner = true
+position = Vector2(221, 201)
+texture = ExtResource("20_1j3a8")
+
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/HBoxContainer3/artist/artistText" to="." method="_on_artist_text_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/HBoxContainer3/inspiration/inspoText" to="." method="_on_inspo_text_text_changed"]
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/tackName/tackText" to="." method="_on_tack_text_text_changed"]
+[connection signal="item_selected" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType/SaddleCheckButton" to="." method="_on_saddle_button_item_selected"]
+[connection signal="item_selected" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType2/BridleCheckButton" to="." method="_on_bridle_button_item_selected"]
+[connection signal="item_selected" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/tackType3/BlanketCheckButton" to="." method="_on_blanket_button_item_selected"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/custCheck/custCheckBox" to="." method="_on_cust_check_box_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/armorCheck/armorCheckBox" to="." method="_on_armor_check_box_pressed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer/redSpinBox" to="." method="_on_red_spin_box_value_changed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer/greenSpinBox" to="." method="_on_green_spin_box_value_changed"]
+[connection signal="value_changed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/EDITBoxContainer/blueSpinBox" to="." method="_on_blue_spin_box_value_changed"]
+[connection signal="item_selected" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/moneyCheck/coinOptions" to="." method="_on_coin_options_item_selected"]
+[connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3cou3ndcs75h"]
+
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_nfgc6"]
+[ext_resource type="Script" uid="uid://ci0tmqhqvnxqd" path="res://scripts/components/error_message.gd" id="2_2t50p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlar3"]
+atlas = ExtResource("1_nfgc6")
+region = Rect2(10, 10, 28, 28)
+
+[sub_resource type="Theme" id="Theme_65ef0"]
+default_font_size = 16
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+Label/colors/font_color = Color(0.305882, 0.270588, 0.133333, 1)
+LineEdit/icons/clear = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5er8k"]
+atlas = ExtResource("1_nfgc6")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lj1"]
+atlas = ExtResource("1_nfgc6")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pby4t"]
+atlas = ExtResource("1_nfgc6")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk1f2"]
+atlas = ExtResource("1_nfgc6")
+region = Rect2(128, 48, 16, 16)
+
+[node name="errorMessage" type="NinePatchRect"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -72.0
+offset_right = 93.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vlar3")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("2_2t50p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(172, 131)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -65.5
+offset_right = 86.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_colors/font_color = Color(0.189345, 0.418238, 0.742626, 1)
+text = "Oops! We have a problem!"
+horizontal_alignment = 1
+
+[node name="errorText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_constants/line_spacing = -3
+text = "Error Message goes here."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_65ef0")
+theme_override_colors/font_color = Color(0.14401, 0.482904, 0.456316, 1)
+text = "Lets try that again..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="continueButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5er8k")
+texture_pressed = SubResource("AtlasTexture_u6lj1")
+texture_hover = SubResource("AtlasTexture_pby4t")
+texture_disabled = SubResource("AtlasTexture_vk1f2")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(176, 23, 10, 23)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
