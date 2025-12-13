@@ -57,7 +57,6 @@ func new_pack_setup(directory : String) -> void: #Build a new pack
 	instructions_file_path = join_paths(directory_root, "INSTRUCTIONS.txt")
 	jsons_root = join_paths(directory_root, "jsons")
 	textures_root = join_paths(directory_root, "textures")
-	TackScripts.script_start_up()
 	DirAccess.make_dir_absolute(directory_root)
 	setup_report()
 	set_up_instructions()
@@ -71,7 +70,6 @@ func old_pack_setup(directory : String) -> void: #Open an existing pack
 	instructions_file_path = join_paths(directory_root, "INSTRUCTIONS.txt")
 	jsons_root = join_paths(directory_root, "jsons")
 	textures_root = join_paths(directory_root, "textures")
-	TackScripts.script_start_up()
 	setup_report()
 	set_up_instructions()
 	if !check_folder(jsons_root):

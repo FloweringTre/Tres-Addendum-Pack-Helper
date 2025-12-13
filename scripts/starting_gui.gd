@@ -27,7 +27,6 @@ func _ready() -> void:
 	%confirmButton.set_disabled()
 	%pathOpenButton.button_pressed.connect(on_path_button_pressed)
 	%coatsButton.button_pressed.connect(on_coats_selected)
-	%tackButton.button_pressed.connect(on_tack_selected)
 	$errorMessage.error_continue.connect(on_error_continue)
 	%nameCheck.button_pressed.connect(on_name_check)
 	$popUP.deny.connect(on_popup_back)
@@ -102,15 +101,12 @@ func enable_interaction() -> void:
 func on_coats_selected() -> void:
 	get_tree().change_scene_to_file("res://scene/coatGUI.tscn")
 
-func on_tack_selected() -> void:
-	get_tree().change_scene_to_file("res://scene/tackMenuGUI.tscn")
-
-func _on_location_text_text_changed(new_text: String) -> void:
+func _on_location_text_text_changed(_new_text: String) -> void:
 	$checkPathLOCA.awaiting_check()
 	root_changed = false
 	%confirmButton.set_disabled() 
 
-func _on_folder_nametext_text_changed(new_text: String) -> void:
+func _on_folder_nametext_text_changed(_new_text: String) -> void:
 	$checkPathFOLD.awaiting_check()
 	folder_changed = false
 	%confirmButton.set_disabled()
