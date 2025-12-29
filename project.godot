@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tres Addendum Pack Helper"
 config/description="An application designed to help make resource packs to work with the swem-addenum mod."
-config/version="1.0.3"
+config/version="1.0.5"
 run/main_scene="res://scene/openingScreen.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.054902, 1)
