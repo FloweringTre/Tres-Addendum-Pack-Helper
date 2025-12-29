@@ -131,20 +131,28 @@ func _on_confirm_button_pressed() -> void:
 func save_coat() -> void:
 	$popUPload.loading("Saving coat")
 	var save_path = GlobalScripts.join_paths(GlobalScripts.textures_root, breed)
+	
+	var missing_coat = false
 	if text_coat:
 		coat_save_path = save_path + "/" + %coatText.text + ".png"
 		image_coat.save_png(coat_save_path)
 		GlobalScripts.report("Saved user selected image: " + coat_source + "  to the file location: " + coat_save_path)
 	else:
-		GlobalScripts.instructions_coat(%coatText.text, save_path, has_wings)
+		missing_coat = true
 	
+	var missing_wing = false
 	if has_wings:
 		if text_wing:
 			wing_save_path = save_path + "/" + %coatText.text + "_wing.png"
-			image_coat.save_png(wing_save_path)
+			image_wing.save_png(wing_save_path)
 			GlobalScripts.report("Saved user selected image: " + wing_source + "  to the file location: " + wing_save_path)
+		else:
+			missing_wing = true
 	
-	GlobalScripts.summon_log(%coatText.text, fancy_breed)
+	if missing_coat or missing_wing:
+		GlobalScripts.instructions_coat(%coatText.text, fancy_breed, save_path, missing_coat, missing_wing)
+	
+	GlobalScripts.summon_log(%coatText.text, breed, fancy_breed)
 	$popUPload.stop_loading()
 	new_coat_saved.emit()
 
