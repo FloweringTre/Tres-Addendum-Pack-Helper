@@ -182,14 +182,14 @@ func set_up_summons() -> void:
 				file.close()
 				report("Set up the SUMMMON_COMMANDS.txt document")
 
-func summon_log(coat_name : String, breed : String):
+func summon_log(coat_name : String, breed : String, fancy_breed : String):
 	if ErrorManager.is_error:
 		return
 	else:
 		var file = FileAccess.open(commands_file_path, FileAccess.READ_WRITE)
 		var coat_string = "~Coat Name: " + coat_name + "\n"
-		var breed_string = "~~Breed: " + breed + "\n"
-		var command_string = "~~Summon Command: /summon  swemaddendum:" + breed + " ~ ~ ~ {Texture:\"" + resourcepackname + ":" + breed + "/" + coat_name + ".png\"}"
+		var breed_string = "~~Breed: " + fancy_breed + "\n"
+		var command_string = "~~Summon Command: /summon swemaddendum:" + breed + " ~ ~ ~ {Texture:\"" + resourcepackname + ":" + breed + "/" + coat_name + ".png\"}"
 		
 		if !file:
 			ErrorManager.is_error = true
@@ -229,21 +229,29 @@ func set_up_instructions() -> void:
 				file.close()
 				report("Set up the INSTRUCTIONS.txt document")
 
-func instructions_coat(texture_name : String, path : String, has_wings : bool):
+func instructions_coat(texture_name : String, breed_name : String, path : String, missing_coat : bool, missing_wings : bool):
 	if ErrorManager.is_error:
 		return
 	else:
 		var file = FileAccess.open(instructions_file_path, FileAccess.READ_WRITE)
 		var string_1 = "\nADD A NEW COAT TEXTURE\n"# ADD NEW COAT
-		var string_2 = "~Coat :" + texture_name + "\n"
-		var string_3 = "~~Name the texture: " + texture_name + ".png" + "\n"# ~~Name Texture: kiwi_wonder_pony.png
-		var string_4 = "~~Place the texture in: " + path + "\n" # ~~Save to: folder/path/way
-		var instruction_string = string_1 + string_2 + string_3 + string_4
-		if has_wings:
-			string_3 = "~~Name the COAT texture: " + texture_name + ".png" + "\n"# ~~Name Texture: kiwi_wonder_pony.png
-			string_4 = "~~Place the textures in: " + path + "\n" # ~~Save to: folder/path/way
-			var string_wing = "~~Name the WING texture: " + texture_name + "_wing.png" + "\n"
-			instruction_string = string_1 + string_2 + string_3 + string_wing + string_4
+		var string_2 = "~Coat: " + texture_name + "\n"
+		var string_3 = "~Breed: " + breed_name + "\n"
+		var string_4 = ""
+		var string_coat = "~~Name the Coat texture: " + texture_name + ".png" + "\n"
+		var string_wing = "~~Name the Wing texture: " + texture_name + "_wing.png" + "\n"
+		var string_textures = ""
+		if missing_coat and missing_wings:
+			string_textures = string_coat + string_wing
+			string_4 = "~~Place the textures in: " + path + "\n" # ~~Save to: folder/path/waycheck_file_exists()
+		else:
+			if missing_coat:
+				string_textures = string_coat
+			if missing_wings:
+				string_textures = string_wing
+			string_4 = "~~Place the texture in: " + path + "\n" # ~~Save to: folder/path/way
+		var instruction_string = string_1 + string_2 + string_3 + string_textures + string_4
+		
 		if !file:
 			ErrorManager.is_error = true
 			ErrorManager.error_print("Unable to save instructions. Please check to see if the folder pathway still exists." )
