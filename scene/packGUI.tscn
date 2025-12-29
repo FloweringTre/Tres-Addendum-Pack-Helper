@@ -1,0 +1,325 @@
+[gd_scene load_steps=15 format=3 uid="uid://c2fxhg0txlsq2"]
+
+[ext_resource type="Script" uid="uid://c3xl2vxhdgskk" path="res://scripts/pack_gui.gd" id="1_buv1a"]
+[ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="2_p2cdn"]
+[ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="3_lccr4"]
+[ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="4_kyro3"]
+[ext_resource type="Theme" uid="uid://db3wwmhf400fw" path="res://assets/UI_theme_dark_big.tres" id="5_52h7v"]
+[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="6_fa34f"]
+[ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://scene/components/buttonSMOL2.tscn" id="8_3ac6j"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="11_cgvl2"]
+[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="12_sj4cx"]
+[ext_resource type="PackedScene" uid="uid://wonyaiea8tn2" path="res://scene/components/buttonSMOL2_blue.tscn" id="13_c5m54"]
+[ext_resource type="PackedScene" uid="uid://bpgiy2j33slge" path="res://scene/components/pop_up.tscn" id="14_pyegt"]
+[ext_resource type="PackedScene" uid="uid://clixcby1mmxr3" path="res://scene/helpScreen.tscn" id="16_bv2bc"]
+[ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="17_4w0mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
+atlas = ExtResource("3_lccr4")
+region = Rect2(58, 10, 28, 28)
+
+[node name="packGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_buv1a")
+
+[node name="background" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -600.0
+offset_bottom = -320.0
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 32.6
+anchor_bottom = 18.65
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1260.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_p2cdn")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -167.5
+offset_right = 304.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kx556")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(513, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = 9.0
+offset_right = 204.0
+offset_bottom = 76.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TitleContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("4_kyro3")
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("5_52h7v")
+text = "Update Pack Information"
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+texture = ExtResource("4_kyro3")
+flip_h = true
+
+[node name="Container3" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/Container"]
+visible = false
+position = Vector2(3.7868, 3)
+scale = Vector2(3.07153, 1)
+points = PackedVector2Array(176.296, 2, -1, 2)
+width = 1.0
+default_color = Color(0.6862745, 0.36078432, 0.4, 1)
+
+[node name="helperLabel7" type="Label" parent="NinePatchRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme = ExtResource("11_cgvl2")
+text = "~~ Set Coat Information ~~"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(546, 100)
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Update the Pack Description"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_sj4cx")
+theme_override_constants/line_spacing = -5
+text = "This displays under the pack name (folder name) in the Resource Packs listing."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="descriptionTextEdit" type="TextEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 56)
+layout_mode = 2
+wrap_mode = 1
+autowrap_mode = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/HBoxContainer/Container"]
+position = Vector2(26.49997, 2.5)
+scale = Vector2(3.0766, 1)
+points = PackedVector2Array(-7, 2, -7, 110)
+width = 0.5
+default_color = Color(0.6862745, 0.36078432, 0.4, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Add a Resource Pack Icon"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("12_sj4cx")
+theme_override_constants/line_spacing = -5
+text = "Recommended to be a SQUARE (1:1 aspect ratio) .png file for best results."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="iconButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" instance=ExtResource("8_3ac6j")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="iconLineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "Pack Icon Image"
+editable = false
+
+[node name="Container2" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="NinePatchRect/VBoxContainer/Container2"]
+visible = false
+position = Vector2(3.7868, 3)
+scale = Vector2(3.07153, 1)
+points = PackedVector2Array(176.296, 2, -1, 2)
+width = 1.0
+default_color = Color(0.811765, 0.67451, 0.490196, 1)
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_sj4cx")
+theme_override_constants/line_spacing = -5
+text = "REMEBER TO SAVE THESE VALUES BEFORE RETURNING TO THE MENU SCREEN!!!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="confirmButton" parent="NinePatchRect" instance=ExtResource("13_c5m54")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = 258.5
+offset_right = 601.0
+offset_bottom = 280.5
+button_text = "Save"
+
+[node name="backButton" parent="NinePatchRect" instance=ExtResource("8_3ac6j")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 258.5
+offset_right = 71.0
+offset_bottom = 280.5
+button_text = "Main Menu"
+
+[node name="butterflys" type="Control" parent="NinePatchRect"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.5
+offset_right = 45.0
+offset_bottom = 45.5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 90.0
+offset_bottom = 33.0
+texture = ExtResource("4_kyro3")
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/butterflys"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 0
+offset_left = 509.0
+offset_top = 3.0
+offset_right = 539.0
+offset_bottom = 33.0
+texture = ExtResource("4_kyro3")
+flip_h = true
+
+[node name="popUP_Saved" parent="." instance=ExtResource("14_pyegt")]
+visible = false
+layout_mode = 1
+
+[node name="popUP2_Dupe" parent="." instance=ExtResource("14_pyegt")]
+visible = false
+layout_mode = 1
+
+[node name="popUPexit" parent="." instance=ExtResource("14_pyegt")]
+visible = false
+layout_mode = 1
+
+[node name="helpscreen" parent="." instance=ExtResource("16_bv2bc")]
+visible = false
+layout_mode = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 4
+size = Vector2i(400, 300)
+theme = ExtResource("6_fa34f")
+theme_override_colors/folder_icon_color = Color(0.758928, 0.918193, 0.727778, 1)
+theme_override_colors/file_icon_color = Color(0.584314, 0.854902, 0.847059, 1)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png;PNG Image")
+use_native_dialog = true
+
+[node name="popUPload" parent="." instance=ExtResource("14_pyegt")]
+visible = false
+layout_mode = 1
+
+[node name="errorMessage" parent="." instance=ExtResource("17_4w0mf")]
+visible = false
+layout_mode = 1
+
+[connection signal="text_changed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer/descriptionTextEdit" to="." method="_on_description_text_edit_text_changed"]
+[connection signal="button_pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/iconButton" to="." method="_on_render_button_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
