@@ -732,7 +732,7 @@ theme = ExtResource("5_wev1s")
 layout_mode = 2
 theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
-text = "What other things do I (tre) have going on...."
+text = "What other things do I (tre) have going on?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -752,7 +752,7 @@ theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
 theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
 theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
 theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
-text = "Click here to see the links to my projects!"
+text = "Click here to see all my links!"
 uri = "https://kyraltre.carrd.co/"
 
 [node name="spacer7" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
