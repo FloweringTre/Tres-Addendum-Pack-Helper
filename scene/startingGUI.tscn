@@ -235,21 +235,21 @@ layout_mode = 2
 alignment = 1
 
 [node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer/SummonContainer"]
-custom_minimum_size = Vector2(350, 18)
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
-theme = ExtResource("10_p8xtw")
-text = "The summon command value for this pack will be:"
+theme = ExtResource("8_e2603")
+text = "The unique pack identifier value for this pack's summon commands will be:"
 horizontal_alignment = 2
 
 [node name="S1_java_name" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer/SummonContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 18)
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme = ExtResource("10_p8xtw")
 text = "[press the Clean button!]"
 
 [node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
-custom_minimum_size = Vector2(0, 49)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 theme = ExtResource("2_em82s")
 text = "Press the buttons to earn a chech mark on each line."
@@ -281,15 +281,13 @@ layout_mode = 2
 alignment = 1
 
 [node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/SummonContainer"]
-custom_minimum_size = Vector2(350, 18)
 layout_mode = 2
-theme = ExtResource("10_p8xtw")
-text = "The summon command value for this pack will be:"
+theme = ExtResource("8_e2603")
+text = "The unique pack identifier value for this pack's summon commands is:"
 horizontal_alignment = 2
 
 [node name="S2_java_name" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/SummonContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 18)
 layout_mode = 2
 theme = ExtResource("10_p8xtw")
 text = "[press the Clean button!]"

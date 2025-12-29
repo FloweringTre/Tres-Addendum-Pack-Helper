@@ -79,6 +79,7 @@ func on_done() -> void:
 		%pathOpenButton.set_disabled()
 		location_text.editable = false
 		folder_nametext.editable = false
+		%S2_java_name.text = GlobalScripts.text_clean(folder_nametext.text)
 		if old_pack:
 			$NinePatchRect/VBoxContainer/Stage2BoxContainer/Stage2Text.text  = \
 			"\"" + GlobalScripts.folder + "\" folder has been opened!"
