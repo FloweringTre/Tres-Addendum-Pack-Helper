@@ -17,6 +17,10 @@ func _ready() -> void:
 		on_done()
 	else:
 		location_text.text = GlobalScripts.directory_root
+		$NinePatchRect/VBoxContainer/Stage1BoxContainer.visible = true
+		$NinePatchRect/VBoxContainer/Stage2BoxContainer.visible = false
+		%confirmButton.visible = true
+		%newpackButton.visible = false
 	if GlobalScripts.folder != "":
 		folder_nametext.text = GlobalScripts.folder
 		old_pack = true
@@ -27,15 +31,16 @@ func _ready() -> void:
 	%confirmButton.set_disabled()
 	%pathOpenButton.button_pressed.connect(on_path_button_pressed)
 	%coatsButton.button_pressed.connect(on_coats_selected)
+	%packButton.button_pressed.connect(on_pack_selected)
 	$errorMessage.error_continue.connect(on_error_continue)
 	%nameCheck.button_pressed.connect(on_name_check)
 	$popUP.deny.connect(on_popup_back)
 	$popUP.confirm.connect(on_popup_confirmed)
 	$popUP2.deny.connect(on_popup_leave_back)
 	$popUP2.confirm.connect(on_popup_leave_confirmed)
+	$popUP3.deny.connect(_on_pop_up_new_deny)
+	$popUP3.confirm.connect(_on_pop_up_new_confirm)
 	$helpscreen.visible = true
-	if GlobalScripts.artist != "":
-		%artistNametext.text = GlobalScripts.artist
 
 func _on_confirm_button_pressed() -> void:
 	$popUPload.loading("Checking pack path")
@@ -45,6 +50,7 @@ func _on_confirm_button_pressed() -> void:
 	folder = GlobalScripts.path_clean(folder)
 	GlobalScripts.root = Root
 	GlobalScripts.folder = folder
+	GlobalScripts.resourcepackname = %S2_java_name.text
 	directory = GlobalScripts.join_paths(Root, folder)
 	
 	if GlobalScripts.check_folder(directory):
@@ -61,6 +67,8 @@ func on_done() -> void:
 	if ErrorManager.is_error:
 		pass
 	else:
+		%confirmButton.visible = false
+		%newpackButton.visible = true
 		$NinePatchRect/VBoxContainer/Stage1BoxContainer.visible = false
 		%confirmButton.visible = false
 		$NinePatchRect/VBoxContainer/Stage2BoxContainer.visible = true
@@ -73,10 +81,10 @@ func on_done() -> void:
 		folder_nametext.editable = false
 		if old_pack:
 			$NinePatchRect/VBoxContainer/Stage2BoxContainer/Stage2Text.text  = \
-			GlobalScripts.folder + " folder has been opened!"
+			"\"" + GlobalScripts.folder + "\" folder has been opened!"
 		else:
 			$NinePatchRect/VBoxContainer/Stage2BoxContainer/Stage2Text.text  = \
-			GlobalScripts.folder + " folder has been generated!"
+			"\"" + GlobalScripts.folder + "\" folder has been generated!"
 
 func disable_interaction() -> void:
 	%confirmButton.set_disabled()
@@ -86,7 +94,8 @@ func disable_interaction() -> void:
 	location_text.editable = false
 	folder_nametext.editable = false
 	%coatsButton.set_disabled()
-	%tackButton.set_disabled()
+	%newpackButton.set_disabled()
+	%packButton.set_disabled()
 
 func enable_interaction() -> void:
 	%confirmButton.reenable_button()
@@ -96,10 +105,18 @@ func enable_interaction() -> void:
 	location_text.editable = true
 	folder_nametext.editable = true
 	%coatsButton.reenable_button()
-	%tackButton.reenable_button()
+	%newpackButton.reenable_button()
+	%packButton.reenable_button()
 
 func on_coats_selected() -> void:
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
 	get_tree().change_scene_to_file("res://scene/coatGUI.tscn")
+
+func on_pack_selected() -> void:
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
+	get_tree().change_scene_to_file("res://scene/packGUI.tscn")
 
 func _on_location_text_text_changed(_new_text: String) -> void:
 	$checkPathLOCA.awaiting_check()
@@ -135,16 +152,18 @@ func _on_back_button_pressed() -> void:
 	disable_interaction()
 
 func on_path_button_pressed() -> void:
+	$FileDialog.current_dir = location_text.text
 	$FileDialog.visible = true
 	$FileDialog.title = "Select where to save the pack folder"
-	$FileDialog.current_dir = location_text.text
 
 func on_name_check() -> void:
 	if folder_nametext.text == "":
 		$checkPathFOLD.set_check(false)
 		folder_changed = false
 	else:
-		folder_nametext.text = GlobalScripts.text_clean(folder_nametext.text)
+		folder_nametext.text = GlobalScripts.to_alphanumeric(folder_nametext.text, false, true)
+		%S1_java_name.text = GlobalScripts.text_clean(folder_nametext.text)
+		%S2_java_name.text = GlobalScripts.text_clean(folder_nametext.text)
 		$checkPathFOLD.set_check(true)
 		folder_changed = true
 		if root_changed == true:
@@ -177,9 +196,6 @@ func on_popup_leave_back() -> void:
 func on_popup_leave_confirmed() -> void:
 	get_tree().quit()
 
-func _on_artist_nametext_text_changed(new_text: String) -> void:
-	GlobalScripts.artist = %artistNametext.text
-
 func _on_location_text_focus_exited() -> void:
 	location_text.text = GlobalScripts.path_clean(location_text.text)
 	if GlobalScripts.check_folder(location_text.text):
@@ -197,3 +213,20 @@ func _on_location_text_focus_exited() -> void:
 func _on_file_dialog_dir_selected(dir: String) -> void:
 	location_text.text = dir
 	_on_location_text_focus_exited()
+
+
+func _on_newpack_button_button_pressed() -> void:
+	var title = "Are you sure..."
+	var message = "...you want to stop working on " + GlobalScripts.folder + " and start on a new pack?"
+	var no_label = "No"
+	var yes_label = "Yes"
+	$popUP3.pop_yesNo(title, message, no_label, yes_label)
+	disable_interaction()
+
+func _on_pop_up_new_confirm() -> void:
+	GlobalScripts.restart()
+	enable_interaction()
+	get_tree().reload_current_scene()
+
+func _on_pop_up_new_deny() -> void:
+	enable_interaction()

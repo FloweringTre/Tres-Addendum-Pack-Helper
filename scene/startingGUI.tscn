@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7f637oqram5g"]
+[gd_scene load_steps=24 format=3 uid="uid://c7f637oqram5g"]
 
 [ext_resource type="Script" uid="uid://b6y6ldfy2e6gh" path="res://scripts/starting_gui.gd" id="1_3an53"]
 [ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_lx5dw"]
 [ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="2_em82s"]
 [ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_kp27u"]
 [ext_resource type="PackedScene" uid="uid://bicshr65lr0n1" path="res://scene/components/button.tscn" id="5_1lo41"]
+[ext_resource type="Theme" uid="uid://db3wwmhf400fw" path="res://assets/UI_theme_dark_big.tres" id="5_587tk"]
 [ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="5_o5bxr"]
 [ext_resource type="PackedScene" uid="uid://cp0jrapb6x6a2" path="res://scene/components/buttonSMOL.tscn" id="5_uwvmr"]
 [ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="6_iaop6"]
@@ -108,7 +109,7 @@ grow_horizontal = 2
 
 [node name="TitleContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 130
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
@@ -119,9 +120,8 @@ texture = ExtResource("3_kp27u")
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/TitleContainer"]
 layout_mode = 2
-theme = ExtResource("2_em82s")
-theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
-text = "Tre's Pack Helper"
+theme = ExtResource("5_587tk")
+text = "Tre's Addendum Pack Helper"
 
 [node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/TitleContainer"]
 visible = false
@@ -129,6 +129,11 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 texture = ExtResource("3_kp27u")
 flip_h = true
+
+[node name="spacer" type="Container" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme = ExtResource("7_7ylay")
 
 [node name="Hbox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -205,15 +210,14 @@ focus_previous = NodePath("../folderNametext")
 button_text = "Clean"
 
 [node name="Stage1BoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
-custom_minimum_size = Vector2(500, 28)
+custom_minimum_size = Vector2(550, 14)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_o5bxr")
-text = "This is what the new pack folder will be named The name needs to only include lower case letters, numbers, and underscores. The 'Clean' button will ensure it is java compliant for you!"
+text = "This is what the new resource pack folder will be named. The 'Clean' button will perfect it for building"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -221,16 +225,34 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme = ExtResource("8_e2603")
-text = "Each pack needs to have a unique name. If two packs or tack items have the same name, errors will occur."
+text = "It is recommended that each resource pack has a unique name as duplicate names causes issues."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="SummonContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer/SummonContainer"]
+custom_minimum_size = Vector2(350, 18)
+layout_mode = 2
+theme = ExtResource("10_p8xtw")
+text = "The summon command value for this pack will be:"
+horizontal_alignment = 2
+
+[node name="S1_java_name" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer/SummonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 2
+theme = ExtResource("10_p8xtw")
+text = "[press the Clean button!]"
 
 [node name="HelperLabel3" type="Label" parent="NinePatchRect/VBoxContainer/Stage1BoxContainer"]
 custom_minimum_size = Vector2(0, 49)
 layout_mode = 2
 theme = ExtResource("2_em82s")
-text = "Press the buttons to earn a chech mark on each line.
-"
+text = "Press the buttons to earn a chech mark on each line."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -239,20 +261,38 @@ autowrap_mode = 2
 layout_mode = 2
 theme = ExtResource("10_5yckn")
 text = "After you have a check mark in each required field above,
-you will be able to press the button below and start generating your SWEM Community Pack!"
+you will be able to press the button below and start generating your Addendum Resource Pack!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Stage2BoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Stage2Text2" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+[node name="Stage2Text2" type="Container" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
 visible = false
-custom_minimum_size = Vector2(0, 14)
+custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 theme = ExtResource("7_7ylay")
-horizontal_alignment = 1
-autowrap_mode = 2
+
+[node name="SummonContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/SummonContainer"]
+custom_minimum_size = Vector2(350, 18)
+layout_mode = 2
+theme = ExtResource("10_p8xtw")
+text = "The summon command value for this pack will be:"
+horizontal_alignment = 2
+
+[node name="S2_java_name" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/SummonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 2
+theme = ExtResource("10_p8xtw")
+text = "[press the Clean button!]"
 
 [node name="Stage2Text" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
 custom_minimum_size = Vector2(0, 28)
@@ -266,7 +306,7 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 theme = ExtResource("5_o5bxr")
-text = "What files would you like to make?"
+text = "What files do you want to work on?"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
@@ -279,40 +319,10 @@ unique_name_in_owner = true
 layout_mode = 2
 button_text = "Coats"
 
-[node name="Container2" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
-custom_minimum_size = Vector2(64, 16)
-layout_mode = 2
-theme = ExtResource("5_o5bxr")
-text = "Optional: Set the default texture artist for this pack."
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Hbox3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
-visible = false
-custom_minimum_size = Vector2(0, 22)
-layout_mode = 2
-theme = ExtResource("10_5yckn")
-text = "Default Artist Name:"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Container" type="Container" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
-visible = false
-custom_minimum_size = Vector2(3, 0)
-layout_mode = 2
-
-[node name="artistNametext" type="LineEdit" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3"]
+[node name="packButton" parent="NinePatchRect/VBoxContainer/Stage2BoxContainer/HBoxContainer" instance=ExtResource("5_1lo41")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../../Hbox/locationText")
-focus_previous = NodePath("../../../Hbox/pathOpenButton")
-placeholder_text = "This name will pre-populate on all the generators to save time!"
+button_text = "Pack Info"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect"]
 layout_mode = 1
@@ -332,19 +342,18 @@ alignment = 1
 [node name="HelperLabel7" type="Label" parent="NinePatchRect/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("8_e2603")
-text = "If you have questions or bugs, please join my
-"
+text = "If you have questions or bugs, please join "
 horizontal_alignment = 1
 
-[node name="LinkButton" type="LinkButton" parent="NinePatchRect/HBoxContainer3"]
+[node name="LinkButton2" type="LinkButton" parent="NinePatchRect/HBoxContainer3"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "Discord server."
-uri = "https://discord.gg/GuYRWK22Mx"
+theme = ExtResource("8_e2603")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Peachy's Discord server."
+uri = "https://tr.ee/QszY5GItGS"
 
 [node name="backButton" type="TextureButton" parent="NinePatchRect"]
 unique_name_in_owner = true
@@ -366,8 +375,7 @@ offset_top = 313.0
 offset_right = 65.0
 offset_bottom = 327.0
 size_flags_horizontal = 4
-theme = ExtResource("10_p8xtw")
-theme_override_colors/font_color = Color(0.493728, 0.364523, 0.227402, 1)
+theme = ExtResource("5_o5bxr")
 text = "Exit "
 vertical_alignment = 2
 
@@ -379,6 +387,16 @@ offset_top = 295.5
 offset_right = 601.0
 offset_bottom = 327.5
 button_text = "Open the Pack!"
+
+[node name="newpackButton" parent="NinePatchRect" instance=ExtResource("13_6su5t")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 537.0
+offset_top = 295.5
+offset_right = 601.0
+offset_bottom = 327.5
+button_text = "Make New Pack"
 
 [node name="butterflys" type="Control" parent="NinePatchRect"]
 anchors_preset = 0
@@ -409,17 +427,17 @@ flip_h = true
 [node name="checkPathLOCA" parent="." instance=ExtResource("9_xnwmn")]
 layout_mode = 0
 offset_left = 187.0
-offset_top = -121.0
+offset_top = -116.0
 offset_right = 203.0
-offset_bottom = -105.0
+offset_bottom = -100.0
 scale = Vector2(1.5, 1.5)
 
 [node name="checkPathFOLD" parent="." instance=ExtResource("9_xnwmn")]
 layout_mode = 0
 offset_left = 187.0
-offset_top = -52.0
+offset_top = -48.0
 offset_right = 203.0
-offset_bottom = -36.0
+offset_bottom = -32.0
 scale = Vector2(1.5, 1.5)
 
 [node name="popUP" parent="." instance=ExtResource("12_kwseo")]
@@ -427,6 +445,10 @@ visible = false
 layout_mode = 1
 
 [node name="popUP2" parent="." instance=ExtResource("12_kwseo")]
+visible = false
+layout_mode = 1
+
+[node name="popUP3" parent="." instance=ExtResource("12_kwseo")]
 visible = false
 layout_mode = 1
 
@@ -457,7 +479,7 @@ layout_mode = 1
 [connection signal="focus_exited" from="NinePatchRect/VBoxContainer/Hbox/locationText" to="." method="_on_location_text_focus_exited"]
 [connection signal="text_changed" from="NinePatchRect/VBoxContainer/Hbox/locationText" to="." method="_on_location_text_text_changed"]
 [connection signal="text_changed" from="NinePatchRect/VBoxContainer/Hbox2/folderNametext" to="." method="_on_folder_nametext_text_changed"]
-[connection signal="text_changed" from="NinePatchRect/VBoxContainer/Stage2BoxContainer/Hbox3/artistNametext" to="." method="_on_artist_nametext_text_changed"]
 [connection signal="pressed" from="NinePatchRect/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="button_pressed" from="NinePatchRect/confirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="button_pressed" from="NinePatchRect/newpackButton" to="." method="_on_newpack_button_button_pressed"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
