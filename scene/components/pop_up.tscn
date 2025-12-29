@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpgiy2j33slge"]
+[gd_scene load_steps=16 format=3 uid="uid://bpgiy2j33slge"]
 
 [ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_6x5xs"]
 [ext_resource type="Script" uid="uid://b7x050qo5ygsp" path="res://scripts/components/pop_up.gd" id="2_0cii8"]
 [ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="3_kx8fm"]
+[ext_resource type="Theme" uid="uid://d1f8o0u5d7nrp" path="res://assets/UI_theme_green.tres" id="4_7u6jf"]
 [ext_resource type="PackedScene" uid="uid://cp0jrapb6x6a2" path="res://scene/components/buttonSMOL.tscn" id="4_8gsbi"]
 [ext_resource type="PackedScene" uid="uid://c18of0dynnf7n" path="res://scene/components/buttonSMOLBLUE.tscn" id="5_p00mt"]
 
@@ -112,7 +113,7 @@ theme_override_constants/separation = 4
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_65ef0")
-theme_override_colors/font_color = Color(0.189345, 0.418238, 0.742626, 1)
+theme_override_colors/font_color = Color(0.12156863, 0.019607844, 0.07450981, 1)
 text = "Pop Up Title"
 horizontal_alignment = 1
 
@@ -139,7 +140,7 @@ text = ". "
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-theme = SubResource("Theme_65ef0")
+theme = ExtResource("4_7u6jf")
 theme_override_constants/line_spacing = -3
 text = "pop up message goes here It can be such a long message. Like so hecking long omg. This is a long long pop up message!
 SO LONGGGGG!!!!!"
@@ -149,18 +150,18 @@ autowrap_mode = 2
 [node name="continue" type="HBoxContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(120, 14)
-layout_mode = 2
-offset_left = 59.0
+layout_mode = 0
+offset_left = 52.0
 offset_top = 120.0
-offset_right = 179.0
-offset_bottom = 134.0
+offset_right = 181.0
+offset_bottom = 136.0
 alignment = 2
 
 [node name="continueLabel" type="Label" parent="continue"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_65ef0")
-theme_override_colors/font_color = Color(0.14401, 0.482904, 0.456316, 1)
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
 text = "Lets try that again..."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -177,14 +178,15 @@ stretch_mode = 6
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(176, 23, 10, 23)
 width = 1.0
-default_color = Color(0.811765, 0.67451, 0.490196, 1)
+default_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6ylsm")
+&"": SubResource("AnimationLibrary_6ylsm")
 }
 
 [node name="buttons" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 106.0
 offset_right = 186.0

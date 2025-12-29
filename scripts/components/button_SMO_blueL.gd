@@ -21,7 +21,7 @@ func _on_button_button_down() -> void:
 func set_disabled() -> void:
 	$Button.disabled = true
 	_on_button_button_down()
-	button_label.add_theme_color_override("font_color", Color(0.024, 0.396, 0.49) )
+	button_label.add_theme_color_override("font_color", Color(0.122, 0.02, 0.075, 1.0) )
 
 
 func reenable_button() -> void:

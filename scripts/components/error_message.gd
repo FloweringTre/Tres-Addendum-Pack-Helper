@@ -6,7 +6,7 @@ func _ready() -> void:
 	ErrorManager.error_alert.connect(on_error)
 	$".".visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if ErrorManager.is_error:
 		on_error()
 	else:

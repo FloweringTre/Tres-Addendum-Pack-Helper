@@ -1,19 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3cou3ndcs75h"]
+[gd_scene load_steps=11 format=3 uid="uid://b3cou3ndcs75h"]
 
 [ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="1_nfgc6"]
 [ext_resource type="Script" uid="uid://ci0tmqhqvnxqd" path="res://scripts/components/error_message.gd" id="2_2t50p"]
+[ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="3_rxvsu"]
+[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="4_q06v3"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="5_r8niu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlar3"]
 atlas = ExtResource("1_nfgc6")
 region = Rect2(10, 10, 28, 28)
-
-[sub_resource type="Theme" id="Theme_65ef0"]
-default_font_size = 16
-HSlider/icons/grabber = null
-HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = null
-Label/colors/font_color = Color(0.305882, 0.270588, 0.133333, 1)
-LineEdit/icons/clear = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5er8k"]
 atlas = ExtResource("1_nfgc6")
@@ -69,8 +64,7 @@ theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_65ef0")
-theme_override_colors/font_color = Color(0.189345, 0.418238, 0.742626, 1)
+theme = ExtResource("3_rxvsu")
 text = "Oops! We have a problem!"
 horizontal_alignment = 1
 
@@ -78,7 +72,8 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-theme = SubResource("Theme_65ef0")
+theme = ExtResource("4_q06v3")
+theme_override_colors/font_color = Color(0.6834015, 0.21741962, 0.47794986, 1)
 theme_override_constants/line_spacing = -3
 text = "Error Message goes here."
 horizontal_alignment = 1
@@ -90,8 +85,7 @@ alignment = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_65ef0")
-theme_override_colors/font_color = Color(0.14401, 0.482904, 0.456316, 1)
+theme = ExtResource("5_r8niu")
 text = "Lets try that again..."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -107,6 +101,6 @@ texture_disabled = SubResource("AtlasTexture_vk1f2")
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(176, 23, 10, 23)
 width = 1.0
-default_color = Color(0.811765, 0.67451, 0.490196, 1)
+default_color = Color(0.34509805, 0.08235294, 0.23137255, 1)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/continueButton" to="." method="_on_continue_button_pressed"]
