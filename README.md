@@ -1,4 +1,4 @@
-<h2><i>Tre's Adendeusadkmmeum Pack Helper</i></h2> 
+<h2><i>Tre's Addendum Pack Helper</i></h2> 
 <img src="./assets/icon.png" alt="Helper Pack Logo" width="30"/> This new application is designed to make resource packs for the swem-addendum mod. It will also produce a .txt document with summon commands.
 <br><br>
 This software will produce the resource pack complete with textures (that you select from your computer). 
@@ -10,7 +10,7 @@ Failure to follow this direct instruction will leave your device vunerable to ma
 Only download the official release versions to ensure a working software.</strong></center>
 
 ---------------------------------------------------
-Engine: [Godot 4.3](https://godotengine.org/)<br>
+Engine: [Godot 4.5](https://godotengine.org/)<br>
 Art Software: [Aseprite](https://www.aseprite.org/)<br>
 
 ---------------------------------------------------
@@ -18,5 +18,8 @@ Art Software: [Aseprite](https://www.aseprite.org/)<br>
 [All my links are here!](https://kyraltre.carrd.co/) <br>
 <br>
 [This project was commissioned by RileyCasper](https://en.pronouns.page/@RileyCasper)<br>
+[Background made by MoonFlower](https://moon-flower-info.carrd.co/)<br>
+[Check out Gotenks/EvangeliX's github - he is the OG maker of the Addendum mod!](https://github.com/ffxvfan/)<br>
 [Get more help with the addeneumumim mod from their wiki](https://peachypixelplace.notion.site/Swem-Addendum-1e118cd14b9280a8b135c9e6dc1e6e15)<br>
+[Join Peachy's discord server for extended troubleshooting.](https://tr.ee/QszY5GItGS)<br>
 Direct Link to the swem-addeneum mod: https://www.curseforge.com/minecraft/mc-mods/swem-addendum
