@@ -1,17 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn7ut62jxmgnl"]
+[gd_scene load_steps=27 format=3 uid="uid://cn7ut62jxmgnl"]
 
 [ext_resource type="Script" uid="uid://vfmn74psi6gx" path="res://scripts/opening_screen.gd" id="1_su0nw"]
 [ext_resource type="Texture2D" uid="uid://diy8htskfybtd" path="res://assets/moon_bg.png" id="2_1k85t"]
 [ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="2_fs84d"]
 [ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_oba0u"]
-[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="4_le8h4"]
 [ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="4_uf3dj"]
 [ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="5_cncku"]
+[ext_resource type="Theme" uid="uid://db3wwmhf400fw" path="res://assets/UI_theme_dark_big.tres" id="5_qfv2f"]
 [ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="5_sdrau"]
 [ext_resource type="PackedScene" uid="uid://b3cou3ndcs75h" path="res://scene/components/error_message.tscn" id="7_8xlpx"]
 [ext_resource type="Theme" uid="uid://vjxbkxdwdxu4" path="res://assets/UI_theme_alert.tres" id="7_33s8g"]
+[ext_resource type="Theme" uid="uid://d1f8o0u5d7nrp" path="res://assets/UI_theme_green.tres" id="9_j05bg"]
 [ext_resource type="Texture2D" uid="uid://d1ykhw1sfpi48" path="res://assets/boot_screen.png" id="9_vg3x7"]
 [ext_resource type="PackedScene" uid="uid://c18of0dynnf7n" path="res://scene/components/buttonSMOLBLUE.tscn" id="10_73o4v"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="11_j05bg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kx556"]
 atlas = ExtResource("2_fs84d")
@@ -122,7 +124,6 @@ grow_vertical = 2
 script = ExtResource("1_su0nw")
 
 [node name="background" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_left = -640.0
 offset_top = -360.0
@@ -181,7 +182,7 @@ grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 109
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
@@ -192,10 +193,9 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_le8h4")
-theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+theme = ExtResource("5_qfv2f")
 theme_override_font_sizes/font_size = 48
-text = "Tre's Pack Helper"
+text = "Tre's Addendum Pack Helper"
 
 [node name="TextureRect2" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
@@ -209,41 +209,40 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_uf3dj")
 theme_override_font_sizes/font_size = 16
-text = "Version $VERSION made for SWEM version 1.5.2"
+text = "Version $VERSION made for the SWEM Addendum mod"
 horizontal_alignment = 1
 
 [node name="HelperLabel4" type="Label" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
-theme = ExtResource("5_cncku")
-text = "This application is designed to create the folder system and json files for a SWEM Community Pack. 
-"
+theme = ExtResource("5_sdrau")
+text = "This application is designed to create a resource pack system for a resource pack to be used with the SWEM Addendum mod to add additional coats to the game with the new models."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel5" type="Label" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_sdrau")
-text = "You have the option to add the textures into the pack through this application meaning this can completely create a community pack for you all in one go. If you choose not to have the Pack Helper add the textures, there is an INSTRUCTIONS.txt document that is generated and it will tell you what to name the textures and where to put them."
+theme = ExtResource("5_cncku")
+text = "You have the option to add the textures into the pack through this application meaning this can completely create a resource pack for you all in one go. If you choose not to have the Addendum Pack Helper add the textures, there is an INSTRUCTIONS.txt document that is generated and it will tell you what to name the textures and where to put them."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="spacer6" type="Container" parent="NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
+visible = false
 layout_mode = 2
 theme = ExtResource("4_uf3dj")
 
 [node name="spacer2" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_sdrau")
+theme = ExtResource("5_cncku")
 theme_override_font_sizes/font_size = 16
-text = "A report document is also generated that logs all actions the Pack Helper does for transparency."
+text = "A report document is also generated that logs all actions the Addendum Pack Helper does for transparency;
+along with a document that generates all the summon codes for the coats added in the pack"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="spacer5" type="Container" parent="NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme = ExtResource("4_uf3dj")
 
@@ -253,21 +252,19 @@ alignment = 1
 
 [node name="HelperLabel7" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("5_sdrau")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
-text = "If you have questions or bugs, please join my
-"
+theme = ExtResource("9_j05bg")
+text = "If you have questions or bugs, please join"
 horizontal_alignment = 1
 
 [node name="LinkButton" type="LinkButton" parent="NinePatchRect/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "Discord server."
-uri = "https://discord.gg/GuYRWK22Mx"
+theme = ExtResource("9_j05bg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Peachy's Discord server."
+uri = "https://tr.ee/QszY5GItGS"
 
 [node name="spacer4" type="Container" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 3)
@@ -287,7 +284,7 @@ autowrap_mode = 2
 [node name="HelperLabel2" type="Label" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("4_uf3dj")
+theme = ExtResource("11_j05bg")
 text = "~~ I can not guarantee the safety of your device while using this application ~~
 ~~ if you did not get the application from me. ~~"
 horizontal_alignment = 1
@@ -311,8 +308,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 14)
 layout_mode = 2
 theme = ExtResource("7_33s8g")
-theme_override_colors/font_color = Color(0.0235294, 0.396078, 0.490196, 1)
-theme_override_colors/font_outline_color = Color(0.865, 0.894, 0.89, 0.562)
+theme_override_colors/font_color = Color(0.5702273, 0.09360211, 0.15171227, 1)
+theme_override_colors/font_outline_color = Color(0.98236066, 0.6910108, 0.75153786, 0.47058824)
 text = "I understand this warning."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -320,12 +317,12 @@ autowrap_mode = 2
 
 [node name="exit" type="Label" parent="NinePatchRect"]
 custom_minimum_size = Vector2(100, 14)
-layout_mode = 2
+layout_mode = 0
 offset_left = 41.0
 offset_top = 313.0
 offset_right = 141.0
 offset_bottom = 327.0
-theme_override_colors/font_color = Color(0.52549, 0.203922, 0.14902, 1)
+theme = ExtResource("5_cncku")
 text = "Exit"
 vertical_alignment = 1
 autowrap_mode = 2
@@ -333,7 +330,7 @@ autowrap_mode = 2
 [node name="continue" type="Label" parent="NinePatchRect"]
 visible = false
 custom_minimum_size = Vector2(150, 14)
-layout_mode = 2
+layout_mode = 0
 offset_left = 415.0
 offset_top = 313.0
 offset_right = 565.0
@@ -382,6 +379,22 @@ texture_normal = SubResource("AtlasTexture_dc5y5")
 texture_pressed = SubResource("AtlasTexture_vma22")
 texture_hover = SubResource("AtlasTexture_bdmw2")
 texture_disabled = SubResource("AtlasTexture_bsk5g")
+
+[node name="LinkButton2" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 167.0
+offset_right = 302.0
+offset_bottom = 178.0
+size_flags_horizontal = 4
+theme = ExtResource("9_j05bg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+theme_override_font_sizes/font_size = 12
+text = "made by kyraltre / green broke games"
+uri = "https://kyraltre.carrd.co/"
 
 [node name="errorMessage" parent="." instance=ExtResource("7_8xlpx")]
 visible = false

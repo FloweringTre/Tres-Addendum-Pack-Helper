@@ -29,4 +29,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_confirm_button_button_pressed() -> void:
+	TransitionFade.transition()
+	await TransitionFade.transition_finished
 	get_tree().change_scene_to_file("res://scene/startingGUI.tscn")

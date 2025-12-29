@@ -8,7 +8,7 @@ func _ready() -> void:
 	ErrorManager.error_passed.connect(on_error_passed)
 	$versionLabel.visible = true
 	$TextureButton.visible = true
-	#GlobalScripts.replace_version_placeholder($versionLabel)
+	GlobalScripts.replace_version_placeholder(%versionLabel)
 
 func _on_texture_button_pressed() -> void:
 	$AnimationPlayer.play("open_faq")

@@ -1,13 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://clixcby1mmxr3"]
+[gd_scene load_steps=26 format=3 uid="uid://clixcby1mmxr3"]
 
 [ext_resource type="Script" uid="uid://cl7t66bw2snal" path="res://scripts/help_screen.gd" id="1_u7n5r"]
 [ext_resource type="Texture2D" uid="uid://8f0rfohmniwa" path="res://assets/menuUI.png" id="2_xqowa"]
 [ext_resource type="PackedScene" uid="uid://s4coqphlup24" path="res://scene/components/buttonSMOL2.tscn" id="3_rg2fc"]
 [ext_resource type="Texture2D" uid="uid://dm1bh2yywotao" path="res://assets/icon.png" id="3_rno1h"]
-[ext_resource type="Theme" uid="uid://clxftkhcliti8" path="res://assets/UI_theme.tres" id="4_pm8ji"]
+[ext_resource type="Theme" uid="uid://db3wwmhf400fw" path="res://assets/UI_theme_dark_big.tres" id="4_fvby1"]
 [ext_resource type="Theme" uid="uid://dm4jlnbmnj4eb" path="res://assets/UI_theme_dark.tres" id="5_wev1s"]
-[ext_resource type="Theme" uid="uid://dix1yxdlw8hbv" path="res://assets/UI_theme_smol.tres" id="6_ijdgy"]
-[ext_resource type="Theme" uid="uid://cf6ttsgxwgavd" path="res://assets/UI_theme_blue.tres" id="7_3nugk"]
+[ext_resource type="Theme" uid="uid://cof5u4dam7c2t" path="res://assets/UI_theme_shadowed.tres" id="6_jb8pn"]
+[ext_resource type="Theme" uid="uid://ba0311fv8u53i" path="res://assets/UI_theme_creme.tres" id="7_b1kom"]
+[ext_resource type="Theme" uid="uid://d1f8o0u5d7nrp" path="res://assets/UI_theme_green.tres" id="8_kskrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt1hr"]
 atlas = ExtResource("2_xqowa")
@@ -290,8 +291,7 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="FAQ/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_pm8ji")
-theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+theme = ExtResource("4_fvby1")
 theme_override_font_sizes/font_size = 32
 text = "Frequently Asked Questions"
 
@@ -322,24 +322,35 @@ theme_override_constants/separation = 0
 
 [node name="title3" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer4"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
-text = "I don't have all the rack textures for the new blankets and girth straps... What do I do?"
+text = "Where do I get the Addendum Mod?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel5" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer4"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "Select \"No\" for custom rack textures and premade rack textures for saddle blankets, girth straps, and pasture blankets, will be saved in your pack. "
+text = "Download it from it's official CurseForge Page."
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="LinkButton3" type="LinkButton" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "SWEM Addendum Official CurseForge Page"
+uri = "https://www.curseforge.com/minecraft/mc-mods/swem-addendum"
+
 [node name="spacer5" type="Container" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
@@ -349,23 +360,34 @@ theme_override_constants/separation = -2
 
 [node name="title4" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
-text = "What if I want to update the rack textures later?"
+text = "Is there a guide for this mod?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel6" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "Then just name your new textures the same as the old ones and replace them in the folder!"
+text = "Yes! There is a whole wiki site made for this mod that compiles all the guides and resources."
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="LinkButton3" type="LinkButton" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Check out the Addendum Wiki Page"
+uri = "https://peachypixelplace.notion.site/Swem-Addendum-1e118cd14b9280a8b135c9e6dc1e6e15"
+
 [node name="spacer6" type="Container" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
@@ -375,7 +397,7 @@ theme_override_constants/separation = -2
 
 [node name="title5" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
 text = "I got an error message!"
 horizontal_alignment = 1
@@ -384,35 +406,35 @@ autowrap_mode = 2
 [node name="HelperLabel7" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
 text = "Most times it is related to your file path, check and make sure the file on the main menu is still in the location listed!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="spacer7" type="Container" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -2
 
-[node name="title6" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+[node name="title5" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer5"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
-text = "My icons are all dark and weird..."
+text = "How do I summon a coat I added?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelperLabel8" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+[node name="HelperLabel7" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer5"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "Remove the Instructions and Reporting documents from your pack folder to fix this."
+text = "All summon commands are located in the SUMMON_COMMANDS.txt file."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -426,7 +448,7 @@ theme_override_constants/separation = -2
 
 [node name="title2" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
 text = "What do I need to do after generating the 
@@ -437,10 +459,9 @@ autowrap_mode = 2
 [node name="HelperLabel4" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "If you didn't preload your textures, you will need to add the textures according to the INSTRUCTIONS.txt document that is generated in the pack folder. 
-"
+text = "If you didn't preload your textures, you will need to add the textures according to the INSTRUCTIONS.txt document that is generated in the pack folder.  - Otherwise its good to go!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -455,20 +476,19 @@ theme_override_constants/separation = -2
 
 [node name="title3" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
-text = "Where do I put the pack folder? "
+text = "Where do I put the resource pack folder? "
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel5" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = " Your pack folder needs to be in the config > swem > community-packs folder in your modpack. 
-"
+text = "Direcetly into the resourcepacks folder of your minecraft instance. You can easily open it from the Resoruce Packs selection screen in game."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -479,54 +499,27 @@ theme = ExtResource("5_wev1s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme_override_constants/separation = -1
+theme_override_constants/separation = -2
 
-[node name="title3" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
+[node name="title6" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
-text = "~~ Helpful Texture Notes ~~"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelperLabel5" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("5_wev1s")
-theme_override_colors/font_color = Color(0.113725, 0.415686, 0.290196, 1)
-text = "For saddles:"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelperLabel6" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme = ExtResource("5_wev1s")
-theme_override_constants/line_spacing = -2
-text = "For the saddle, the Saddle Rack and Armor Rack textures are the exact same texture, just with different names."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelperLabel7" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("5_wev1s")
-theme_override_colors/font_color = Color(0.113725, 0.415686, 0.290196, 1)
-text = "For Leg Wraps:"
+text = "My game can't see the resource pack!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel8" type="Label" parent="FAQ/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "For leg wraps, both the 'Normal' and 'Hoof' textures are the same, just with different names."
+text = "Make sure you are directly putting the folder into the resourcepacks folder and not nesting it into another folder. When you open the folder from the resourcepacks folder you should immediately see the assets folder."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="spacer4" type="Container" parent="FAQ/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
+custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
@@ -538,8 +531,7 @@ theme_override_constants/separation = -2
 [node name="HelperLabel9" type="Label" parent="FAQ/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
+theme = ExtResource("8_kskrg")
 text = "If you have more questions or experience bugs,"
 horizontal_alignment = 1
 
@@ -550,31 +542,29 @@ alignment = 1
 
 [node name="HelperLabel7" type="Label" parent="FAQ/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
-text = "please join my"
+theme = ExtResource("8_kskrg")
+text = "please join"
 horizontal_alignment = 1
 
 [node name="LinkButton" type="LinkButton" parent="FAQ/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "Discord server"
-uri = "https://discord.gg/GuYRWK22Mx"
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Peachy's Discord server."
+uri = "https://tr.ee/QszY5GItGS"
 
 [node name="HelperLabel8" type="Label" parent="FAQ/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
+theme = ExtResource("8_kskrg")
 text = "to get more help!"
 horizontal_alignment = 1
 
 [node name="creditsbutton" parent="FAQ" instance=ExtResource("3_rg2fc")]
 unique_name_in_owner = true
-modulate = Color(0.476183, 0.851755, 0.739363, 1)
+modulate = Color(0.902451, 0.5415854, 0.6927662, 1)
 layout_mode = 0
 offset_left = 531.0
 offset_top = 300.5
@@ -603,13 +593,11 @@ offset_top = 313.0
 offset_right = 115.0
 offset_bottom = 327.0
 size_flags_horizontal = 4
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.493728, 0.364523, 0.227402, 1)
+theme = ExtResource("6_jb8pn")
 text = "Return to page"
 vertical_alignment = 2
 
 [node name="butterflys" type="Control" parent="FAQ"]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 5.0
 offset_top = 5.5
@@ -618,7 +606,7 @@ offset_bottom = 45.5
 
 [node name="TextureRect" type="TextureRect" parent="FAQ/butterflys"]
 custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
+layout_mode = 0
 offset_left = 60.0
 offset_top = 3.0
 offset_right = 90.0
@@ -627,7 +615,7 @@ texture = ExtResource("3_rno1h")
 
 [node name="TextureRect2" type="TextureRect" parent="FAQ/butterflys"]
 custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
+layout_mode = 0
 offset_left = 509.0
 offset_top = 3.0
 offset_right = 539.0
@@ -681,10 +669,9 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_pm8ji")
-theme_override_colors/font_color = Color(0.178263, 0.423711, 0.665043, 1)
+theme = ExtResource("4_fvby1")
 theme_override_font_sizes/font_size = 32
-text = "Pack Helper Credits"
+text = "Addendum Pack Helper Credits"
 
 [node name="TextureRect2" type="TextureRect" parent="CREDITS/VBoxContainer/HBoxContainer"]
 visible = false
@@ -709,7 +696,7 @@ layout_mode = 2
 
 [node name="title3" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
 text = "MoonFlower made the background!"
@@ -719,7 +706,7 @@ autowrap_mode = 2
 [node name="HelperLabel5" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
 text = "She made the Rainbow tack for the Tack Shop and also is the creator of Equestrian CIT. They are a very talented artist and I highly recommend them if you want a horse art piece! "
 horizontal_alignment = 1
@@ -728,48 +715,72 @@ autowrap_mode = 2
 [node name="LinkButton" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
 text = "Click here to see MoonFlower's links!"
 uri = "https://moon-flower-info.carrd.co/"
 
 [node name="spacer5" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
 [node name="title4" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_font_sizes/font_size = 16
-text = "What other things do I have going on...."
+text = "What other things do I (tre) have going on...."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel6" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "I am working on a game that I have called
-Verdant Equinox. I also do other random projects like this one but all normally horse related."
+text = "... a lot... I jump around between projects with the wind. Lots of art, writing, and game dev projects to be had in my corner of the world."
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="LinkButton2" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "Click here to see all my links!"
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Click here to see the links to my projects!"
 uri = "https://kyraltre.carrd.co/"
 
+[node name="spacer7" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme = ExtResource("5_wev1s")
+
+[node name="title5" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_jb8pn")
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 16
+text = "What game engine runs this software?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelperLabel7" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_b1kom")
+theme_override_constants/line_spacing = -2
+text = "The godot 4.5 engine."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="spacer6" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
@@ -780,121 +791,127 @@ layout_mode = 2
 
 [node name="title2" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
-text = "Big thanks to Legenden!"
+text = "Big thanks to RileyCasper!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel4" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "He did a lot of bug testing for this application and provided a ton of suggestions to make it better! He was the main coder for the inital releases of SWEM and helped get each iteration of the Tack Shop off the ground. 
-
-He did the 1.2.0 update to make pegasus horse coats work!"
+text = "They are started this project by commissioning me to put this project to the top of my to-do list. They are a wonderful human who does amazing work within Peachy's server and thre wider SWEM community as whole."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = -3
-
-[node name="HelperLabel6" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_wev1s")
-theme_override_constants/line_spacing = -2
-text = "Check out all of Legenden's cool"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="LinkButton2" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
+[node name="LinkButton" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "projects on Github!"
-uri = "https://moon-flower-info.carrd.co/"
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Click here to see RileyCasper's links!"
+uri = "https://en.pronouns.page/@RileyCasper"
 
 [node name="spacer4" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
 [node name="title3" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("7_3nugk")
+theme = ExtResource("6_jb8pn")
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 16
-text = "What game engine runs this software?"
+text = "Shout to to Gotenks/EvangeliX"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HelperLabel5" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-custom_minimum_size = Vector2(250, 28)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("5_wev1s")
+theme = ExtResource("7_b1kom")
 theme_override_constants/line_spacing = -2
-text = "The Pack Helper runs on the godot 4.3 engine and was built within the godot engine.
-"
+text = "He is the original coder behind the SWEM Addendum mod and this would be pointless without his hard work!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="spacer3" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-visible = false
-custom_minimum_size = Vector2(0, 3)
+[node name="HBoxContainer" type="HBoxContainer" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="LinkButton2" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Check out his github!"
+uri = "https://github.com/ffxvfan/"
+
+[node name="VSeparator" type="VSeparator" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+modulate = Color(0.7777987, 0.42119756, 0.2914669, 1)
+layout_mode = 2
+
+[node name="LinkButton3" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Addendum CurseForge Page"
+uri = "https://www.curseforge.com/minecraft/mc-mods/swem-addendum"
+
+[node name="spacer5" type="Container" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme = ExtResource("5_wev1s")
 
-[node name="spacer4" type="Container" parent="CREDITS/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-theme = ExtResource("5_wev1s")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CREDITS/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="HelperLabel9" type="Label" parent="CREDITS/VBoxContainer/VBoxContainer"]
+[node name="HelperLabel9" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
+theme = ExtResource("8_kskrg")
 text = "If you have more questions or experience bugs,"
 horizontal_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CREDITS/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="HelperLabel7" type="Label" parent="CREDITS/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="HelperLabel7" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
-text = "please join my"
+theme = ExtResource("8_kskrg")
+text = "please join"
 horizontal_alignment = 1
 
-[node name="LinkButton" type="LinkButton" parent="CREDITS/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="LinkButton" type="LinkButton" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.198815, 0.4217, 0.443676, 1)
-theme_override_colors/font_focus_color = Color(0.957863, 0.999282, 0.975755, 1)
-theme_override_colors/font_pressed_color = Color(0.0915672, 0.352416, 0.243904, 1)
-theme_override_colors/font_hover_color = Color(0.783671, 0.933012, 0.946132, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.194243, 0.672641, 0.474787, 1)
-text = "Discord server"
-uri = "https://discord.gg/GuYRWK22Mx"
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+text = "Peachy's Discord server."
+uri = "https://tr.ee/QszY5GItGS"
 
-[node name="HelperLabel8" type="Label" parent="CREDITS/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="HelperLabel8" type="Label" parent="CREDITS/VBoxContainer/HBoxContainer2/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.113924, 0.41665, 0.289974, 1)
+theme = ExtResource("8_kskrg")
 text = "to get more help!"
 horizontal_alignment = 1
 
@@ -919,13 +936,11 @@ offset_top = 313.0
 offset_right = 126.0
 offset_bottom = 327.0
 size_flags_horizontal = 4
-theme = ExtResource("6_ijdgy")
-theme_override_colors/font_color = Color(0.493728, 0.364523, 0.227402, 1)
+theme = ExtResource("6_jb8pn")
 text = "Back to FAQ page"
 vertical_alignment = 2
 
 [node name="butterflys" type="Control" parent="CREDITS"]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 5.0
 offset_top = 5.5
@@ -934,7 +949,7 @@ offset_bottom = 45.5
 
 [node name="TextureRect" type="TextureRect" parent="CREDITS/butterflys"]
 custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
+layout_mode = 0
 offset_left = 60.0
 offset_top = 3.0
 offset_right = 90.0
@@ -943,7 +958,7 @@ texture = ExtResource("3_rno1h")
 
 [node name="TextureRect2" type="TextureRect" parent="CREDITS/butterflys"]
 custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
+layout_mode = 0
 offset_left = 509.0
 offset_top = 3.0
 offset_right = 539.0
@@ -957,6 +972,7 @@ libraries = {
 }
 
 [node name="versionLabel" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 247.0
 offset_top = -159.0
@@ -965,8 +981,24 @@ offset_bottom = -145.0
 theme = SubResource("Theme_ooxh2")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -3
-text = "V1.2.0"
+text = "$VERSION"
 horizontal_alignment = 2
+
+[node name="LinkButton2" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 167.0
+offset_right = 302.0
+offset_bottom = 178.0
+size_flags_horizontal = 4
+theme = ExtResource("8_kskrg")
+theme_override_colors/font_color = Color(0.43137255, 0.20784314, 0.1254902, 1)
+theme_override_colors/font_focus_color = Color(0.7005592, 0.43810877, 0.38943812, 1)
+theme_override_colors/font_pressed_color = Color(0.34385204, 0.15991744, 0.09209787, 1)
+theme_override_colors/font_hover_color = Color(0.6223612, 0.23607504, 0.29707807, 1)
+theme_override_font_sizes/font_size = 12
+text = "made by kyraltre / green broke games"
+uri = "https://kyraltre.carrd.co/"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="button_pressed" from="FAQ/creditsbutton" to="." method="_on_creditsbutton_button_pressed"]
